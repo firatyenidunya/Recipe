@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,8 @@
 		33A10F9C276DEB0B00051B8F /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A10F9B276DEB0B00051B8F /* ColorTests.swift */; };
 		33A10FA4276DEE8F00051B8F /* IconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A10FA3276DEE8F00051B8F /* IconTests.swift */; };
 		33A10FAC276DF0F800051B8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A10FAB276DF0F800051B8F /* Assets.xcassets */; };
+		33A11003276E12EB00051B8F /* Autowired+Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A11002276E12EB00051B8F /* Autowired+Typealias.swift */; };
+		33A11010276E148100051B8F /* DependencyRegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A1100F276E148100051B8F /* DependencyRegistrationService.swift */; };
 		C3F99389643E0C7D51BEDA2B /* Pods_Recipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 667F82F891294EF514F56C65 /* Pods_Recipe.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		33A10F9B276DEB0B00051B8F /* ColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
 		33A10FA3276DEE8F00051B8F /* IconTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTests.swift; sourceTree = "<group>"; };
 		33A10FAB276DF0F800051B8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		33A11002276E12EB00051B8F /* Autowired+Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Autowired+Typealias.swift"; sourceTree = "<group>"; };
+		33A1100F276E148100051B8F /* DependencyRegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyRegistrationService.swift; sourceTree = "<group>"; };
 		41CD1606D3C4BD4763F8D7EB /* Pods-Recipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe.release.xcconfig"; path = "Target Support Files/Pods-Recipe/Pods-Recipe.release.xcconfig"; sourceTree = "<group>"; };
 		53FF57361F500D8E4D777909 /* Pods-Recipe-RecipeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe-RecipeUITests.release.xcconfig"; path = "Target Support Files/Pods-Recipe-RecipeUITests/Pods-Recipe-RecipeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		667F82F891294EF514F56C65 /* Pods_Recipe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recipe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +123,6 @@
 				FCAA0BA7B546698A5A35B1BD /* Pods-RecipeTests.debug.xcconfig */,
 				AA1F32FC188B6A8B142B2F0E /* Pods-RecipeTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -148,12 +151,12 @@
 		33A10F19276DE67F00051B8F /* Recipe */ = {
 			isa = PBXGroup;
 			children = (
-				33A10F1A276DE67F00051B8F /* AppDelegate.swift */,
+				33A1100A276E140A00051B8F /* Application */,
+				33A11001276E12CA00051B8F /* DependencyInjections */,
 				33A10F4D276DE6C300051B8F /* Supporting Files */,
 				33A10F54276DE71600051B8F /* Common */,
 				33A10F8A276DE99700051B8F /* Resources */,
 				33A10F6D276DE7F800051B8F /* Theme */,
-				33A10F1C276DE67F00051B8F /* SceneDelegate.swift */,
 				33A10F1E276DE67F00051B8F /* ViewController.swift */,
 				33A10F20276DE67F00051B8F /* Main.storyboard */,
 			);
@@ -240,6 +243,32 @@
 				33A10FA3276DEE8F00051B8F /* IconTests.swift */,
 			);
 			path = ThemeTests;
+			sourceTree = "<group>";
+		};
+		33A11001276E12CA00051B8F /* DependencyInjections */ = {
+			isa = PBXGroup;
+			children = (
+				33A11002276E12EB00051B8F /* Autowired+Typealias.swift */,
+			);
+			path = DependencyInjections;
+			sourceTree = "<group>";
+		};
+		33A1100A276E140A00051B8F /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				33A1100E276E147000051B8F /* Services */,
+				33A10F1A276DE67F00051B8F /* AppDelegate.swift */,
+				33A10F1C276DE67F00051B8F /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		33A1100E276E147000051B8F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				33A1100F276E148100051B8F /* DependencyRegistrationService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D03BA7CBA74CE06A0D107519 /* Frameworks */ = {
@@ -512,12 +541,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				33A10F1F276DE67F00051B8F /* ViewController.swift in Sources */,
+				33A11010276E148100051B8F /* DependencyRegistrationService.swift in Sources */,
 				33A10F1B276DE67F00051B8F /* AppDelegate.swift in Sources */,
 				33A10F1D276DE67F00051B8F /* SceneDelegate.swift in Sources */,
 				33A10F7E276DE8F700051B8F /* ColorStyle.swift in Sources */,
 				33A10F70276DE87B00051B8F /* ImageStyle.swift in Sources */,
 				33A10F78276DE8AF00051B8F /* Theme+UIImageExtension.swift in Sources */,
 				33A10F86276DE95800051B8F /* Theme+UIColorExtension.swift in Sources */,
+				33A11003276E12EB00051B8F /* Autowired+Typealias.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
