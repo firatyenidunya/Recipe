@@ -13,7 +13,7 @@ protocol Registrationable {
 }
 
 class DependencyRegistrationService: NSObject, UIApplicationDelegate {
-    lazy var registrationList: [Registrationable.Type] = []
+    lazy var registrationList: [Registrationable.Type] = [ServiceRegistrations.self]
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
