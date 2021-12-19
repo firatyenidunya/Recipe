@@ -38,6 +38,8 @@
 		33B50B20276F526E00B9D1A9 /* RequestObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B50B1F276F526E00B9D1A9 /* RequestObject.swift */; };
 		33B50B25276F533E00B9D1A9 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B50B24276F533E00B9D1A9 /* HTTPMethod.swift */; };
 		33B50B2A276F5F7100B9D1A9 /* ServiceInjections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B50B29276F5F7100B9D1A9 /* ServiceInjections.swift */; };
+		33B50B4E276F661D00B9D1A9 /* BaseServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B50B4D276F661D00B9D1A9 /* BaseServiceProtocol.swift */; };
+		33B50B69276F666D00B9D1A9 /* URLSessionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B50B68276F666D00B9D1A9 /* URLSessionExtensions.swift */; };
 		C3F99389643E0C7D51BEDA2B /* Pods_Recipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 667F82F891294EF514F56C65 /* Pods_Recipe.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +98,8 @@
 		33B50B1F276F526E00B9D1A9 /* RequestObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestObject.swift; sourceTree = "<group>"; };
 		33B50B24276F533E00B9D1A9 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		33B50B29276F5F7100B9D1A9 /* ServiceInjections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceInjections.swift; sourceTree = "<group>"; };
+		33B50B4D276F661D00B9D1A9 /* BaseServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseServiceProtocol.swift; sourceTree = "<group>"; };
+		33B50B68276F666D00B9D1A9 /* URLSessionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtensions.swift; sourceTree = "<group>"; };
 		41CD1606D3C4BD4763F8D7EB /* Pods-Recipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe.release.xcconfig"; path = "Target Support Files/Pods-Recipe/Pods-Recipe.release.xcconfig"; sourceTree = "<group>"; };
 		53FF57361F500D8E4D777909 /* Pods-Recipe-RecipeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe-RecipeUITests.release.xcconfig"; path = "Target Support Files/Pods-Recipe-RecipeUITests/Pods-Recipe-RecipeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		667F82F891294EF514F56C65 /* Pods_Recipe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recipe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -296,6 +300,7 @@
 		33B50ADF276EACCA00B9D1A9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				33B50B4C276F660F00B9D1A9 /* Protocols */,
 				33B50AF3276EADE800B9D1A9 /* Extensions */,
 				33B50AE8276EAD5000B9D1A9 /* Entities */,
 				33B50AE0276EACD900B9D1A9 /* BaseService.swift */,
@@ -320,9 +325,18 @@
 			children = (
 				33B50AF4276EADF500B9D1A9 /* HTTPURLResponseExtensions.swift */,
 				33B50AFC276F457400B9D1A9 /* URLComponentsExtensions.swift */,
-				33B50B1A276F472700B9D1A9 /* Loader.swift */,
+				33B50B68276F666D00B9D1A9 /* URLSessionExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		33B50B4C276F660F00B9D1A9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				33B50B4D276F661D00B9D1A9 /* BaseServiceProtocol.swift */,
+				33B50B1A276F472700B9D1A9 /* Loader.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		D03BA7CBA74CE06A0D107519 /* Frameworks */ = {
@@ -578,6 +592,7 @@
 			files = (
 				33A10F1F276DE67F00051B8F /* ViewController.swift in Sources */,
 				33A11010276E148100051B8F /* DependencyRegistrationService.swift in Sources */,
+				33B50B69276F666D00B9D1A9 /* URLSessionExtensions.swift in Sources */,
 				33A10F1B276DE67F00051B8F /* AppDelegate.swift in Sources */,
 				33A10F1D276DE67F00051B8F /* SceneDelegate.swift in Sources */,
 				33B50B02276F459500B9D1A9 /* Endpoint.swift in Sources */,
@@ -594,6 +609,7 @@
 				33B50B25276F533E00B9D1A9 /* HTTPMethod.swift in Sources */,
 				33B50B1B276F472700B9D1A9 /* Loader.swift in Sources */,
 				33B50B20276F526E00B9D1A9 /* RequestObject.swift in Sources */,
+				33B50B4E276F661D00B9D1A9 /* BaseServiceProtocol.swift in Sources */,
 				33B50AFD276F457400B9D1A9 /* URLComponentsExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,11 +8,6 @@
 import Foundation
 import RxSwift
 
-protocol BaseServiceProtocol {
-    func request<T: Decodable>(with requestObject: RequestObject,
-                               decoder: JSONDecoder) -> Single<T>
-}
-
 final class BaseService: BaseServiceProtocol {
 
     var urlSession: URLSession
@@ -24,7 +19,7 @@ final class BaseService: BaseServiceProtocol {
     @discardableResult
     func request<T: Decodable>(with requestObject: RequestObject,
                                decoder: JSONDecoder = JSONDecoder()) -> Single<T> {
-        return Observable<T>.create { [unowned self] observer in
+        return Observable<T>.create { [self] observer in
             guard let urlRequest = requestObject.urlRequest else {
                 observer.onError(RecipeError.invalidUrlRequest)
                 return Disposables.create()
