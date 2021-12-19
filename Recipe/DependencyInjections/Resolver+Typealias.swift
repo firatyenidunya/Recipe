@@ -1,5 +1,5 @@
 //
-//  Autowired+Typealias.swift
+//  Resolver+Typealias.swift
 //  Recipe
 //
 //  Created by Firat Yenidunya on 18.12.2021.

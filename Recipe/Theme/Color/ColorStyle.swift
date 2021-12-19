@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum ColorStyle: String, Codable, CaseIterable {
+enum ColorStyle: String {
     case primary
     case secondary
 

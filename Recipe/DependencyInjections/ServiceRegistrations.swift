@@ -1,5 +1,5 @@
 //
-//  ServiceInjections.swift
+//  ServiceRegistrations.swift
 //  Recipe
 //
 //  Created by Firat Yenidunya on 19.12.2021.

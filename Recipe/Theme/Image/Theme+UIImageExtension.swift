@@ -10,4 +10,5 @@ import UIKit
 extension UIImage {
     static let iconsTabBarRecipes = ImageStyle.iconsTabBarRecipes.image
     static let iconsTabBarFavorites = ImageStyle.iconsTabBarFavorites.image
+    static let iconsTabBarCollections = ImageStyle.iconsTabBarCollections.image
 }

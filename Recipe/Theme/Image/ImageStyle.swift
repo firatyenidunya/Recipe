@@ -7,9 +7,10 @@
 
 import UIKit
 
-enum ImageStyle: String, Codable, CaseIterable {
+enum ImageStyle: String {
     case iconsTabBarRecipes
     case iconsTabBarFavorites
+    case iconsTabBarCollections
 
     var image: UIImage {
         UIImage(named: rawValue) ?? UIImage()

@@ -10,7 +10,8 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    lazy var services: [UIApplicationDelegate] = [DependencyRegistrationService()]
+    lazy var services: [UIApplicationDelegate] = [DependencyRegistrationService(),
+                                                  AppearanceInitializationService()]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
