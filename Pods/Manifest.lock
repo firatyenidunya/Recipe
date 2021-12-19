@@ -1,38 +1,26 @@
 PODS:
-  - Alamofire (5.1.0)
   - NVActivityIndicatorView (5.1.1):
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
   - Resolver (1.5.0)
   - RxSwift (6.2.0)
-  - Sourcery (1.6.0)
-  - SwiftyMocky (4.1.0):
-    - Sourcery (= 1.6.0)
 
 DEPENDENCIES:
-  - Alamofire (= 5.1.0)
   - NVActivityIndicatorView (= 5.1.1)
   - Resolver (= 1.5.0)
   - RxSwift (= 6.2.0)
-  - SwiftyMocky (= 4.1.0)
 
 SPEC REPOS:
   trunk:
-    - Alamofire
     - NVActivityIndicatorView
     - Resolver
     - RxSwift
-    - Sourcery
-    - SwiftyMocky
 
 SPEC CHECKSUMS:
-  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   Resolver: 68984624572763018fd8ec7b8e3e8df0e3b6bba5
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
-  Sourcery: 744f43178637c79bf23127dfe34e2103b3f28499
-  SwiftyMocky: 014739247afadb65efb5bb92ede32c22b9365762
 
-PODFILE CHECKSUM: 4067dc375a70d8b6f3fb9b9707ec21e1c3817116
+PODFILE CHECKSUM: d5c70d6286d31420aa0b724fb0b88ed50fa08db8
 
 COCOAPODS: 1.10.0
