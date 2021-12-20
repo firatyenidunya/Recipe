@@ -33,7 +33,10 @@ final class BaseService: BaseServiceProtocol {
         }.share().asSingle()
     }
 
-    private func handle<T: Decodable>(_ response: URLResponse?, with decoder: JSONDecoder, with data: Data?, to observer: AnyObserver<T>) {
+    private func handle<T: Decodable>(_ response: URLResponse?,
+                                      with decoder: JSONDecoder,
+                                      with data: Data?,
+                                      to observer: AnyObserver<T>) {
         guard let httpData = data else {
             handle(response, with: data, to: observer)
             return
@@ -48,7 +51,9 @@ final class BaseService: BaseServiceProtocol {
         observer.onCompleted()
     }
 
-    private func handle<T>(_ response: URLResponse?, with data: Data?, to observer: AnyObserver<T>) {
+    private func handle<T>(_ response: URLResponse?,
+                           with data: Data?,
+                           to observer: AnyObserver<T>) {
         if let response = response as? HTTPURLResponse, let httpStatus = response.httpStatus {
             observer.onError(RecipeError.httpError(status: httpStatus, data: data))
         } else {

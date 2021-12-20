@@ -11,6 +11,8 @@ enum ImageStyle: String {
     case iconsTabBarRecipes
     case iconsTabBarFavorites
     case iconsTabBarCollections
+    case iconsGrid
+    case iconsList
 
     var image: UIImage {
         UIImage(named: rawValue) ?? UIImage()

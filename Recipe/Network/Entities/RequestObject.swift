@@ -13,8 +13,8 @@ struct RequestObject {
     var parameters: [String: String] = [:]
     var headers: [String: String] = [:]
 
-    private var endpoint: Endpoint {
-        return Endpoint(path: path, queryItems: parameters)
+    private var endpoint: EndpointComponent {
+        return EndpointComponent(path: path, queryItems: parameters)
     }
 
     var urlRequest: URLRequest? {

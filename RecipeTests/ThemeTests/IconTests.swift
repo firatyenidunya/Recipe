@@ -19,4 +19,14 @@ class IconTests: XCTestCase {
         let iconsTabBarFavorites: UIImage = .iconsTabBarFavorites
         XCTAssertNotEqual(iconsTabBarFavorites, UIImage())
     }
+
+    func testIconsListIsNotNil() {
+        let iconsTabBarFavorites: UIImage = .iconsList
+        XCTAssertNotEqual(iconsTabBarFavorites, UIImage())
+    }
+
+    func testIconsGridIsNotNil() {
+        let iconsTabBarFavorites: UIImage = .iconsGrid
+        XCTAssertNotEqual(iconsTabBarFavorites, UIImage())
+    }
 }

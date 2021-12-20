@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Endpoint {
+struct EndpointComponent {
     let path: String
     var queryItems: [String: String] = [:]
 }
 
-extension Endpoint {
+extension EndpointComponent {
     var url: URL? {
         var components = URLComponents()
         components.scheme = "https"
