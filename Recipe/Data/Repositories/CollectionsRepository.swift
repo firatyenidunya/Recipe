@@ -16,7 +16,7 @@ class CollectionsRepository: CollectionsRepositoryProtocol {
 
     // MARK: - Injected Properties
 
-    @Autowired var collectionsRemoteDataSource: CollectionsRemoteDataSourceProtocol
+    @Autowired private var collectionsRemoteDataSource: CollectionsRemoteDataSourceProtocol
 
     // MARK: - Methods
 

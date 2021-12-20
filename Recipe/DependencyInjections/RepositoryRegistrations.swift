@@ -10,5 +10,6 @@ import Resolver
 class RepositoryRegistrations: Registrationable {
     static func register() {
         Resolver.register { CollectionsRepository() as CollectionsRepositoryProtocol }
+        Resolver.register { RecipeRepository() as RecipeRepositoryProtocol }
     }
 }

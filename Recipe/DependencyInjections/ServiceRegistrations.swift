@@ -11,5 +11,6 @@ class ServiceRegistrations: Registrationable {
     static func register() {
         Resolver.register { BaseService() as BaseServiceProtocol }.scope(.application)
         Resolver.register { CollectionsRemoteService() as CollectionsRemoteServiceProtocol }
+        Resolver.register { RecipeRemoteService() as RecipeRemoteServiceProtocol }
     }
 }
