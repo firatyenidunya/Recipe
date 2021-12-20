@@ -4,6 +4,7 @@
 def recipe_pods
   pod 'NVActivityIndicatorView', '5.1.1' # NVActivityIndicatorView is a collecion of loading animations.
   pod 'Kingfisher', '~> 7.0' # A lightweight, pure-Swift library for downloading and caching images from the web.
+  pod 'DisplaySwitcher', '~> 2.0' # Custom transition between two collection view layouts
   pod 'RxSwift', '6.2.0' # Reactive programming in swift
   pod "Resolver", '1.5.0' # Dependency Injection / Service Locator framework
 end
