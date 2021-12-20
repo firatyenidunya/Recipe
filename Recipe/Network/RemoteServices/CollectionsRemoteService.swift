@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol CollectionsRemoteServiceProtocol {
-    func getAllCollections() -> Single<[CollectionsResponseModel]>
+    func getAllCollections() -> Single<[CollectionsResponseModel]?>
 }
 
 class CollectionsRemoteService: CollectionsRemoteServiceProtocol, Requestable {
@@ -17,7 +17,7 @@ class CollectionsRemoteService: CollectionsRemoteServiceProtocol, Requestable {
 
     // MARK: - Methods
 
-    func getAllCollections() -> Single<[CollectionsResponseModel]> {
+    func getAllCollections() -> Single<[CollectionsResponseModel]?> {
         request(with: RequestObject(path: build(targetEndpoint: .allCollections)))
     }
 }

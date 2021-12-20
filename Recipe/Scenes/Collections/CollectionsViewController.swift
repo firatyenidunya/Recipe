@@ -38,20 +38,25 @@ class CollectionsViewController: BaseViewController {
         viewModel
             .collectionsSubject
             .observe(on: Schedulers.main)
-            .subscribe(onNext: { result in
-                print(result)
-            }).disposed(by: diposeBag)
+            .subscribe(onNext: { [weak self] result in
+                guard let self = self else { return }
+                self.collectionViewAdapter?.reloadData(with: result)
+            }).disposed(by: disposeBag)
     }
 
     // MARK: - NavigationBar
 
     func configureNavigationBar() {
         title = "Collections"
-        setRightBarButton(image: .iconsList)
+        setRightBarButton(image: viewModel.listState.image)
     }
 
     override func navigationBarRightButtonOnClick() {
         super.navigationBarRightButtonOnClick()
+
+        collectionViewAdapter?.invertLayout()
+        viewModel.toggleListState()
+        setRightBarButton(image: viewModel.listState.image)
     }
 
     // MARK: - CollectionView Adapter Configurations

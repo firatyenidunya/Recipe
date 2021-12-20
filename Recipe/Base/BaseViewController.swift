@@ -17,7 +17,7 @@ class BaseViewController: UIViewController, NavigatonBarConfigurable {
 
     // MARK: - Properties
 
-    var diposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
 
     // MARK: - LifCycle Methods
 

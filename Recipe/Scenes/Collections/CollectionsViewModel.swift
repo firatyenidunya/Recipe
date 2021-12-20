@@ -9,9 +9,11 @@ import Foundation
 import RxSwift
 
 protocol CollectionsViewModelProtocol {
-    func getAllCollections()
-
+    var listState: ListState { get set }
     var collectionsSubject: PublishSubject<[CollectionsUIModel]> { get }
+
+    func getAllCollections()
+    func toggleListState()
 }
 
 class CollectionsViewModel: BaseViewModel, CollectionsViewModelProtocol {
@@ -23,6 +25,7 @@ class CollectionsViewModel: BaseViewModel, CollectionsViewModelProtocol {
     // MARK: - Properties
 
     var collectionsSubject = PublishSubject<[CollectionsUIModel]>()
+    var listState: ListState = .list
 
     // MARK: - Methods
 
@@ -33,5 +36,9 @@ class CollectionsViewModel: BaseViewModel, CollectionsViewModelProtocol {
                 guard let self = self else { return }
                 self.collectionsSubject.onNext(result)
             }).disposed(by: disposeBag)
+    }
+
+    func toggleListState() {
+        listState.toggle()
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct CollectionsUIModel {
+struct CollectionsUIModel: Equatable {
     var id: Identifier<CollectionIdentifier>
     var title: String
     var coverImageURL: URL
@@ -26,7 +26,7 @@ extension CollectionsUIModel {
                 return
             }
 
-            title += " " + String(response.recipeCount ?? 0) + " Recipes"
+            title += " - " + String(response.recipeCount ?? 0) + " Recipes"
 
             uiModel.append(CollectionsUIModel(id: response.id,
                                               title: title,

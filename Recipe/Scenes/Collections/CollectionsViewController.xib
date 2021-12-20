@@ -27,7 +27,7 @@
                     </items>
                 </navigationBar>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="RQK-lg-6og">
-                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="U2S-Wr-FIN">
                         <size key="itemSize" width="128" height="128"/>
@@ -41,11 +41,11 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="GtQ-Yc-caC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="5HT-C8-6Kg"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="RQK-lg-6og" secondAttribute="bottom" id="5ux-qp-R6v"/>
+                <constraint firstAttribute="bottom" secondItem="RQK-lg-6og" secondAttribute="bottom" id="5ux-qp-R6v"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GtQ-Yc-caC" secondAttribute="trailing" id="6LN-cW-yKR"/>
                 <constraint firstItem="GtQ-Yc-caC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FpN-W9-4xk"/>
-                <constraint firstItem="RQK-lg-6og" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ruc-vu-Kpr"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RQK-lg-6og" secondAttribute="trailing" id="jqh-dQ-Bxw"/>
+                <constraint firstItem="RQK-lg-6og" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ruc-vu-Kpr"/>
+                <constraint firstAttribute="trailing" secondItem="RQK-lg-6og" secondAttribute="trailing" id="jqh-dQ-Bxw"/>
                 <constraint firstItem="RQK-lg-6og" firstAttribute="top" secondItem="GtQ-Yc-caC" secondAttribute="bottom" id="yMy-gk-tvq"/>
             </constraints>
             <point key="canvasLocation" x="86" y="106"/>
