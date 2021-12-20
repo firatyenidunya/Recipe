@@ -40,6 +40,7 @@
 		3316823B277105700094600C /* CollectionsEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3316823A277105700094600C /* CollectionsEndpointTests.swift */; };
 		33168248277108EF0094600C /* CollectionsUIModelConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33168247277108EF0094600C /* CollectionsUIModelConverterTests.swift */; };
 		3316825C27710D6D0094600C /* CollectionsRemoteDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3316825B27710D6D0094600C /* CollectionsRemoteDataSourceTests.swift */; };
+		3316827A27710F2C0094600C /* CollectionsRemoteServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3316827927710F2C0094600C /* CollectionsRemoteServiceMock.swift */; };
 		33A10F1B276DE67F00051B8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A10F1A276DE67F00051B8F /* AppDelegate.swift */; };
 		33A10F1D276DE67F00051B8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A10F1C276DE67F00051B8F /* SceneDelegate.swift */; };
 		33A10F22276DE67F00051B8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A10F20276DE67F00051B8F /* Main.storyboard */; };
@@ -80,6 +81,7 @@
 		33B50BB7276FA21400B9D1A9 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B50BB5276FA21400B9D1A9 /* FavoritesViewController.xib */; };
 		33B50BC0276FA7B200B9D1A9 /* TabBarItemsIconTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B50BBF276FA7B200B9D1A9 /* TabBarItemsIconTextTests.swift */; };
 		33B50BCC276FA90900B9D1A9 /* TabBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B50BCB276FA90900B9D1A9 /* TabBarTests.swift */; };
+		33D22A2527711513009BEC2E /* ResolverExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D22A2427711513009BEC2E /* ResolverExtensions.swift */; };
 		C3F99389643E0C7D51BEDA2B /* Pods_Recipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 667F82F891294EF514F56C65 /* Pods_Recipe.framework */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +136,7 @@
 		3316823A277105700094600C /* CollectionsEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsEndpointTests.swift; sourceTree = "<group>"; };
 		33168247277108EF0094600C /* CollectionsUIModelConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsUIModelConverterTests.swift; sourceTree = "<group>"; };
 		3316825B27710D6D0094600C /* CollectionsRemoteDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsRemoteDataSourceTests.swift; sourceTree = "<group>"; };
+		3316827927710F2C0094600C /* CollectionsRemoteServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsRemoteServiceMock.swift; sourceTree = "<group>"; };
 		33A10F17276DE67F00051B8F /* Recipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33A10F1A276DE67F00051B8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33A10F1C276DE67F00051B8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +183,7 @@
 		33B50BB5276FA21400B9D1A9 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		33B50BBF276FA7B200B9D1A9 /* TabBarItemsIconTextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemsIconTextTests.swift; sourceTree = "<group>"; };
 		33B50BCB276FA90900B9D1A9 /* TabBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarTests.swift; sourceTree = "<group>"; };
+		33D22A2427711513009BEC2E /* ResolverExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolverExtensions.swift; sourceTree = "<group>"; };
 		41CD1606D3C4BD4763F8D7EB /* Pods-Recipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe.release.xcconfig"; path = "Target Support Files/Pods-Recipe/Pods-Recipe.release.xcconfig"; sourceTree = "<group>"; };
 		53FF57361F500D8E4D777909 /* Pods-Recipe-RecipeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe-RecipeUITests.release.xcconfig"; path = "Target Support Files/Pods-Recipe-RecipeUITests/Pods-Recipe-RecipeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		667F82F891294EF514F56C65 /* Pods_Recipe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recipe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -394,6 +398,14 @@
 			path = RemoteDataSourceTests;
 			sourceTree = "<group>";
 		};
+		3316827827710F0B0094600C /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				3316827927710F2C0094600C /* CollectionsRemoteServiceMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		33A10F0E276DE67F00051B8F = {
 			isa = PBXGroup;
 			children = (
@@ -438,6 +450,8 @@
 		33A10F30276DE68000051B8F /* RecipeTests */ = {
 			isa = PBXGroup;
 			children = (
+				33D22A23277114F4009BEC2E /* Helpers */,
+				3316827827710F0B0094600C /* Mocks */,
 				33168245277108C50094600C /* Data */,
 				33168238277105540094600C /* Network */,
 				331682262770FEB70094600C /* Common */,
@@ -667,6 +681,14 @@
 			path = TabBarTests;
 			sourceTree = "<group>";
 		};
+		33D22A23277114F4009BEC2E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				33D22A2427711513009BEC2E /* ResolverExtensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		D03BA7CBA74CE06A0D107519 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -707,6 +729,7 @@
 				33A10F29276DE68000051B8F /* Sources */,
 				33A10F2A276DE68000051B8F /* Frameworks */,
 				33A10F2B276DE68000051B8F /* Resources */,
+				E7448A38912BE00C317A316E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -915,6 +938,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E7448A38912BE00C317A316E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RecipeTests/Pods-RecipeTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RecipeTests/Pods-RecipeTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RecipeTests/Pods-RecipeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -981,12 +1021,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3316823B277105700094600C /* CollectionsEndpointTests.swift in Sources */,
+				33D22A2527711513009BEC2E /* ResolverExtensions.swift in Sources */,
 				33B50BC0276FA7B200B9D1A9 /* TabBarItemsIconTextTests.swift in Sources */,
 				33168248277108EF0094600C /* CollectionsUIModelConverterTests.swift in Sources */,
 				331682282770FECC0094600C /* ListStateTests.swift in Sources */,
 				33A10FA4276DEE8F00051B8F /* IconTests.swift in Sources */,
 				33B50BCC276FA90900B9D1A9 /* TabBarTests.swift in Sources */,
 				3316825C27710D6D0094600C /* CollectionsRemoteDataSourceTests.swift in Sources */,
+				3316827A27710F2C0094600C /* CollectionsRemoteServiceMock.swift in Sources */,
 				33168231277100E40094600C /* CollectionsUICollectionViewAdapterTests.swift in Sources */,
 				33A10F9C276DEB0B00051B8F /* ColorTests.swift in Sources */,
 			);

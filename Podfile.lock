@@ -6,6 +6,8 @@ PODS:
   - NVActivityIndicatorView/Base (5.1.1)
   - Resolver (1.5.0)
   - RxSwift (6.2.0)
+  - RxTest (6.2.0):
+    - RxSwift (= 6.2.0)
 
 DEPENDENCIES:
   - DisplaySwitcher (~> 2.0)
@@ -13,6 +15,7 @@ DEPENDENCIES:
   - NVActivityIndicatorView (= 5.1.1)
   - Resolver (= 1.5.0)
   - RxSwift (= 6.2.0)
+  - RxTest
 
 SPEC REPOS:
   trunk:
@@ -21,6 +24,7 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - Resolver
     - RxSwift
+    - RxTest
 
 SPEC CHECKSUMS:
   DisplaySwitcher: 1db23ee6a45fbebac733917cc002204adad37d28
@@ -28,7 +32,8 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   Resolver: 68984624572763018fd8ec7b8e3e8df0e3b6bba5
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  RxTest: 0c692fa672b694373ba86d2b00033595297a2831
 
-PODFILE CHECKSUM: 8d62c28ec134215ad009690a111ebd4d593d6f87
+PODFILE CHECKSUM: 64565aceaec42fa957b887798ce3dd7c2ac66b61
 
 COCOAPODS: 1.10.0

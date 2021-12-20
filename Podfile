@@ -21,6 +21,8 @@ target 'Recipe' do
   target 'RecipeTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'RxTest' # Provides testing capabilities for Rx-based systems. It depends on RxSwift.
+    pod 'RxSwift', '6.2.0' # Reactive programming in swift
   end
 
   target 'RecipeUITests' do
