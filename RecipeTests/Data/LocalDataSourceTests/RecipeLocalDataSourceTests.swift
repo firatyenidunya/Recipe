@@ -66,6 +66,7 @@ fileprivate extension RecipeUIModel {
     static func mock() -> RecipeUIModel {
         return RecipeUIModel(id: Identifier<RecipeIdentifier>(id: 1),
                              title: "First",
-                             coverImageURL: URL(string: "www.google.com")!)
+                             coverImageURL: URL(string: "www.google.com")!,
+                             isFavorited: true)
     }
 }

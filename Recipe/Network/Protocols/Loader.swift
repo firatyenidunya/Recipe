@@ -9,5 +9,4 @@ import Foundation
 
 protocol Loader {
     func load(using request: URLRequest, with completion: @escaping (Data?, URLResponse?, Error?) -> Void)
-    func load(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void)
 }
