@@ -20,7 +20,7 @@ class CollectionsViewModel: BaseViewModel, CollectionsViewModelProtocol {
 
     // MARK: - Injected Properties
 
-    @Autowired var collectionsRepository: CollectionsRepositoryProtocol
+    @Autowired private var collectionsRepository: CollectionsRepositoryProtocol
 
     // MARK: - Properties
 

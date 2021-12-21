@@ -5,8 +5,8 @@
 //  Created by Firat Yenidunya on 20.12.2021.
 //
 
-@testable import Recipe
 import RxSwift
+@testable import Recipe
 
 class CollectionsRemoteServiceMockNil: CollectionsRemoteServiceProtocol {
     func getAllCollections() -> Single<[CollectionsResponseModel]?> {
@@ -31,9 +31,9 @@ class CollectionsRemoteServiceMockWithData: CollectionsRemoteServiceProtocol {
 
 fileprivate extension CollectionsResponseModel {
     static func mock() -> [Self] {
-        return [CollectionsResponseModel(id: Identifier<CollectionIdentifier>(id: 1),
-                                         title: "First",
-                                         recipeCount: 1,
-                                         imageUrls: ["cookpad.github.io"])]
+        return [Self(id: Identifier<CollectionIdentifier>(id: 1),
+                     title: "First",
+                     recipeCount: 1,
+                     imageUrls: ["cookpad.github.io"])]
     }
 }

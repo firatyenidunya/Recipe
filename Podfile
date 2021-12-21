@@ -18,8 +18,6 @@ target 'Recipe' do
   # Pods for Recipe
   recipe_pods
 
-  # Pods for Recipe
-
   target 'RecipeTests' do
     inherit! :search_paths
     # Pods for testing

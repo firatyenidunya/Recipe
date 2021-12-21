@@ -104,6 +104,8 @@
 		33FAEC51277248420060A61F /* BaseServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAEC50277248420060A61F /* BaseServiceTests.swift */; };
 		33FAEC56277258670060A61F /* MockLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAEC55277258670060A61F /* MockLoader.swift */; };
 		33FAEC6C27725F3A0060A61F /* RecipeUIModelConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAEC6B27725F3A0060A61F /* RecipeUIModelConverter.swift */; };
+		33FAECDB277266320060A61F /* RecipeRemoteServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAECDA277266320060A61F /* RecipeRemoteServiceMock.swift */; };
+		33FAECF6277267A60060A61F /* RecipeRemoteDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAECF5277267A60060A61F /* RecipeRemoteDataSourceTests.swift */; };
 		C3F99389643E0C7D51BEDA2B /* Pods_Recipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 667F82F891294EF514F56C65 /* Pods_Recipe.framework */; };
 /* End PBXBuildFile section */
 
@@ -228,6 +230,8 @@
 		33FAEC50277248420060A61F /* BaseServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseServiceTests.swift; sourceTree = "<group>"; };
 		33FAEC55277258670060A61F /* MockLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoader.swift; sourceTree = "<group>"; };
 		33FAEC6B27725F3A0060A61F /* RecipeUIModelConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeUIModelConverter.swift; sourceTree = "<group>"; };
+		33FAECDA277266320060A61F /* RecipeRemoteServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRemoteServiceMock.swift; sourceTree = "<group>"; };
+		33FAECF5277267A60060A61F /* RecipeRemoteDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRemoteDataSourceTests.swift; sourceTree = "<group>"; };
 		41CD1606D3C4BD4763F8D7EB /* Pods-Recipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe.release.xcconfig"; path = "Target Support Files/Pods-Recipe/Pods-Recipe.release.xcconfig"; sourceTree = "<group>"; };
 		53FF57361F500D8E4D777909 /* Pods-Recipe-RecipeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe-RecipeUITests.release.xcconfig"; path = "Target Support Files/Pods-Recipe-RecipeUITests/Pods-Recipe-RecipeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		667F82F891294EF514F56C65 /* Pods_Recipe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recipe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -476,6 +480,7 @@
 			isa = PBXGroup;
 			children = (
 				3316825B27710D6D0094600C /* CollectionsRemoteDataSourceTests.swift */,
+				33FAECF5277267A60060A61F /* RecipeRemoteDataSourceTests.swift */,
 			);
 			path = RemoteDataSourceTests;
 			sourceTree = "<group>";
@@ -483,8 +488,8 @@
 		3316827827710F0B0094600C /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				33FAECD9277266120060A61F /* RemoteServices */,
 				33FAEC11277208270060A61F /* MockLocalService.swift */,
-				3316827927710F2C0094600C /* CollectionsRemoteServiceMock.swift */,
 				33FAEC55277258670060A61F /* MockLoader.swift */,
 			);
 			path = Mocks;
@@ -793,6 +798,15 @@
 				33FAEC1A27720BF00060A61F /* RecipeLocalDataSourceTests.swift */,
 			);
 			path = LocalDataSourceTests;
+			sourceTree = "<group>";
+		};
+		33FAECD9277266120060A61F /* RemoteServices */ = {
+			isa = PBXGroup;
+			children = (
+				3316827927710F2C0094600C /* CollectionsRemoteServiceMock.swift */,
+				33FAECDA277266320060A61F /* RecipeRemoteServiceMock.swift */,
+			);
+			path = RemoteServices;
 			sourceTree = "<group>";
 		};
 		D03BA7CBA74CE06A0D107519 /* Frameworks */ = {
@@ -1155,6 +1169,8 @@
 				33B50BCC276FA90900B9D1A9 /* TabBarTests.swift in Sources */,
 				3316825C27710D6D0094600C /* CollectionsRemoteDataSourceTests.swift in Sources */,
 				3316827A27710F2C0094600C /* CollectionsRemoteServiceMock.swift in Sources */,
+				33FAECF6277267A60060A61F /* RecipeRemoteDataSourceTests.swift in Sources */,
+				33FAECDB277266320060A61F /* RecipeRemoteServiceMock.swift in Sources */,
 				33FAEC56277258670060A61F /* MockLoader.swift in Sources */,
 				33168231277100E40094600C /* CollectionsUICollectionViewAdapterTests.swift in Sources */,
 				33A10F9C276DEB0B00051B8F /* ColorTests.swift in Sources */,

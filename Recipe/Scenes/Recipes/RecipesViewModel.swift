@@ -21,7 +21,7 @@ class RecipesViewModel: BaseViewModel, RecipesViewModelProtocol {
 
     // MARK: - Injected Properties
 
-    @Autowired var recipeRepository: RecipeRepositoryProtocol
+    @Autowired private var recipeRepository: RecipeRepositoryProtocol
 
     // MARK: - Properties
     

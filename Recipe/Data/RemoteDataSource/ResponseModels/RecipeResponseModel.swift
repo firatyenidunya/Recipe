@@ -11,7 +11,7 @@ struct RecipeIdentifier: IdentifierType {
     typealias KeyType = Int
 }
 
-struct RecipeResponseModel: Decodable {
+struct RecipeResponseModel: Decodable, Equatable {
     let id: Identifier<RecipeIdentifier>
     let title: String?
     let coverImageURLString: String?
