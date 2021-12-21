@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol CollectionsRemoteDataSourceProtocol {
-    func getAllCollections() -> Single<[CollectionsUIModel]>
+    func getAllCollections() -> Single<[CollectionsResponseModel]?>
 }
 
 class CollectionsRemoteDataSource: CollectionsRemoteDataSourceProtocol {
@@ -20,9 +20,7 @@ class CollectionsRemoteDataSource: CollectionsRemoteDataSourceProtocol {
 
     // MARK: - Methods
 
-    func getAllCollections() -> Single<[CollectionsUIModel]> {
-        collectionsRemoteService.getAllCollections().map { responseModel -> [CollectionsUIModel] in
-            CollectionsUIModel.convert(from: responseModel)
-        }
+    func getAllCollections() -> Single<[CollectionsResponseModel]?> {
+        collectionsRemoteService.getAllCollections()
     }
 }

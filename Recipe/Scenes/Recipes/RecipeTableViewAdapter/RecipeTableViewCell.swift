@@ -10,6 +10,7 @@ import UIKit
 struct RecipeTableViewCellUIModel {
     let title: String
     let coverImageURL: URL
+    let isFavorited: Bool
     let indexPath: IndexPath
 }
 
@@ -41,12 +42,11 @@ class RecipeTableViewCell: UITableViewCell {
 
         titleLabel.text = cellUIModel.title
         coverImage.setImage(with: cellUIModel.coverImageURL)
+        addToFavoritesButton.isSelected = cellUIModel.isFavorited
     }
 
     @IBAction func addToFavoritesButtonOnClick(_ sender: Any) {
         guard let indexPath = cellUIModel?.indexPath else { return }
-        addToFavoritesButton.isSelected = !addToFavoritesButton.isSelected
         delegate?.didAddFavorites(at: indexPath)
     }
-
 }

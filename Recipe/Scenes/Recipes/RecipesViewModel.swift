@@ -7,9 +7,10 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 protocol RecipesViewModelProtocol {
-    var recipesSubject: PublishSubject<[RecipeUIModel]> { get }
+    var recipesSubject: BehaviorRelay<[RecipeUIModel]> { get }
 
     func getAllRecipes()
     func addToFavorites(at index: Int)
@@ -23,7 +24,7 @@ class RecipesViewModel: BaseViewModel, RecipesViewModelProtocol {
 
     // MARK: - Properties
     
-    var recipesSubject = PublishSubject<[RecipeUIModel]>()
+    var recipesSubject = BehaviorRelay<[RecipeUIModel]>(value: [])
 
     // MARK: - Methods
 
@@ -32,10 +33,13 @@ class RecipesViewModel: BaseViewModel, RecipesViewModelProtocol {
             .getRecipes()
             .subscribe(onSuccess: { [weak self] result in
                 guard let self = self else { return }
-                self.recipesSubject.onNext(result)
+                self.recipesSubject.accept(result)
             }).disposed(by: disposeBag)
     }
 
     func addToFavorites(at index: Int) {
+        var value = recipesSubject.value
+        value[index].isFavorited.toggle()
+        recipesSubject.accept(value)
     }
 }

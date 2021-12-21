@@ -45,6 +45,7 @@ class RecipeTableViewAdapter: NSObject, RecipeTableViewAdapterProtocol {
                                                 let cell: RecipeTableViewCell = tableView.dequeue(at: indexPath)
                                                 let cellUIModel = RecipeTableViewCellUIModel(title: recipe.title,
                                                                                              coverImageURL: recipe.coverImageURL,
+                                                                                             isFavorited: recipe.isFavorited,
                                                                                              indexPath: indexPath)
                                                 cell.configure(with: cellUIModel)
                                                 cell.delegate = self

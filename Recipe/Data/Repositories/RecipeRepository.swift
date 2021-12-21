@@ -21,6 +21,8 @@ class RecipeRepository: RecipeRepositoryProtocol {
     // MARK: - Methods
 
     func getRecipes() -> Single<[RecipeUIModel]> {
-        recipeRemoteDataSource.getRecipes()
+        recipeRemoteDataSource.getAllRecipes().map { responseModel -> [RecipeUIModel] in
+            return RecipeUIModel.convert(from: responseModel)
+        }
     }
 }

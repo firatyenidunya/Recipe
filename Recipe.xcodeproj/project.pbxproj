@@ -256,9 +256,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		330425AD2771C5F0005AB1EB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		3316812B277099E30094600C /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				330425AD2771C5F0005AB1EB /* CoreData */,
 				3316813F27709B710094600C /* UIModels */,
 				3316812D27709A430094600C /* Repositories */,
 				3316812C27709A3C0094600C /* RemoteDataSource */,

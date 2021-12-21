@@ -21,6 +21,8 @@ class CollectionsRepository: CollectionsRepositoryProtocol {
     // MARK: - Methods
 
     func getAllCollections() -> Single<[CollectionsUIModel]> {
-        return collectionsRemoteDataSource.getAllCollections()
+        return collectionsRemoteDataSource.getAllCollections().map { responseModel -> [CollectionsUIModel] in
+            CollectionsUIModel.convert(from: responseModel)
+        }
     }
 }

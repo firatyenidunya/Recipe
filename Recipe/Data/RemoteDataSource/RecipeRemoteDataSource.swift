@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 
 protocol RecipeRemoteDataSourceProtocol {
-    func getRecipes() -> Single<[RecipeUIModel]>
+    func getAllRecipes() -> Single<[RecipeResponseModel]?>
 }
 
 class RecipeRemoteDataSource: RecipeRemoteDataSourceProtocol {
@@ -20,9 +20,7 @@ class RecipeRemoteDataSource: RecipeRemoteDataSourceProtocol {
 
     // MARK: - Methods
 
-    func getRecipes() -> Single<[RecipeUIModel]> {
-        recipeRemoteService.getAllRecipes().map { responseModel -> [RecipeUIModel] in
-            return RecipeUIModel.convert(from: responseModel)
-        }
+    func getAllRecipes() -> Single<[RecipeResponseModel]?> {
+        recipeRemoteService.getAllRecipes()
     }
 }
