@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import RxSwift
 import RxCocoa
+import RxSwift
 
 protocol RecipesViewModelProtocol {
     var recipesSubject: BehaviorRelay<[RecipeUIModel]> { get }
@@ -38,8 +38,16 @@ class RecipesViewModel: BaseViewModel, RecipesViewModelProtocol {
     }
 
     func addToFavorites(at index: Int) {
-        var value = recipesSubject.value
-        value[index].isFavorited.toggle()
-        recipesSubject.accept(value)
+        var recipes = recipesSubject.value
+        let selectedRecipe = recipes[index]
+
+        if !selectedRecipe.isFavorited {
+            recipeRepository.addRecipeToFavorites(with: selectedRecipe)
+        } else {
+            recipeRepository.removeRecipeFromFavorites(with: selectedRecipe)
+        }
+
+        recipes[index].isFavorited.toggle()
+        recipesSubject.accept(recipes)
     }
 }
