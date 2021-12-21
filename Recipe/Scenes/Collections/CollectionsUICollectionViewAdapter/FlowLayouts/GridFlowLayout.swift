@@ -8,8 +8,7 @@
 import Foundation
 import DisplaySwitcher
 
-
-class GridFlowLayout: LayoutProtocol {
+struct GridFlowLayout: LayoutProtocol {
     let layout: DisplaySwitchLayout
     let layoutState: LayoutState
 

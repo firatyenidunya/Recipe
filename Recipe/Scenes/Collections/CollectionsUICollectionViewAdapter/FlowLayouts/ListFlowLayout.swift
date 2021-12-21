@@ -8,7 +8,7 @@
 import Foundation
 import DisplaySwitcher
 
-class ListFlowLayout: LayoutProtocol {
+struct ListFlowLayout: LayoutProtocol {
     let layout: DisplaySwitchLayout
     let layoutState: LayoutState
 

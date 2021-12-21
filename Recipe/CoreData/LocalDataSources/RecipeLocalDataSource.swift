@@ -15,7 +15,7 @@ protocol RecipeLocalDataSourceProtocol {
 
 class RecipeLocalDataSource: RecipeLocalDataSourceProtocol {
 
-    @LazyAutowired var localService: LocalServiceProtocol
+    @Autowired var localService: LocalServiceProtocol
 
     func getFavoritedRecipes() -> [FavoritedRecipe] {
         return localService.fetch(FavoritedRecipe.self)

@@ -24,7 +24,7 @@ class RecipeTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var coverImage: UIImageView!
-    @IBOutlet weak var addToFavoritesButton: UIButton!
+    @IBOutlet private weak var addToFavoritesButton: UIButton!
 
     //MARK: - Properties
 

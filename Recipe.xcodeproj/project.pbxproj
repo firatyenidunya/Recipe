@@ -279,6 +279,8 @@
 		330425AD2771C5F0005AB1EB /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				330425CC2771C89B005AB1EB /* LocalService.swift */,
+				330425CB2771C87F005AB1EB /* LocalDataSources */,
 				330425BA2771C727005AB1EB /* CoreDataModel */,
 				330425B42771C6A8005AB1EB /* Model.xcdatamodeld */,
 			);
@@ -304,12 +306,9 @@
 		3316812B277099E30094600C /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				330425AD2771C5F0005AB1EB /* CoreData */,
 				3316813F27709B710094600C /* UIModels */,
 				3316812D27709A430094600C /* Repositories */,
 				3316812C27709A3C0094600C /* RemoteDataSource */,
-				330425CB2771C87F005AB1EB /* LocalDataSources */,
-				330425CC2771C89B005AB1EB /* LocalService.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -514,11 +513,12 @@
 			isa = PBXGroup;
 			children = (
 				33A1100A276E140A00051B8F /* Application */,
+				33A11001276E12CA00051B8F /* DependencyInjections */,
 				331681762770AA5B0094600C /* Base */,
 				33B50B88276F9BDD00B9D1A9 /* Scenes */,
 				33B50ADF276EACCA00B9D1A9 /* Network */,
+				330425AD2771C5F0005AB1EB /* CoreData */,
 				3316812B277099E30094600C /* Data */,
-				33A11001276E12CA00051B8F /* DependencyInjections */,
 				33A10F4D276DE6C300051B8F /* Supporting Files */,
 				33A10F54276DE71600051B8F /* Common */,
 				3316817C2770AEF60094600C /* Utility */,
