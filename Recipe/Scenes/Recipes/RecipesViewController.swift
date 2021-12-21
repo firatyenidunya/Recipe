@@ -15,7 +15,7 @@ class RecipesViewController: BaseViewController {
 
     // MARK: - Injected Propeties
 
-    @LazyAutowired var viewModel: RecipesViewModelProtocol
+    @Autowired var viewModel: RecipesViewModelProtocol
 
     // MARK: - Properties
 
@@ -31,12 +31,18 @@ class RecipesViewController: BaseViewController {
         viewModel.getAllRecipes()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.updateRecipeFavoriteStatus()
+    }
+
     // MARK: - Methods
 
     func setupBindings() {
         viewModel
             .recipesSubject
             .observe(on: Schedulers.main)
+            .skip(1)
             .subscribe(onNext: { [weak self] recipes in
                 guard let self = self else { return }
                 self.tableViewAdapter?.update(with: recipes, animate: false)

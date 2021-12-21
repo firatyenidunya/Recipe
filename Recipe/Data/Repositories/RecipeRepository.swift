@@ -10,7 +10,9 @@ import RxSwift
 
 protocol RecipeRepositoryProtocol {
     func getRecipes() -> Single<[RecipeUIModel]>
+    func getFavoritedRecipes() -> [RecipeUIModel]
     func getFavoritedRecipes() -> Single<[RecipeUIModel]>
+    
     func addRecipeToFavorites(with recipe: RecipeUIModel)
     func removeRecipeFromFavorites(with recipe: RecipeUIModel)
 }
@@ -19,8 +21,8 @@ class RecipeRepository: RecipeRepositoryProtocol {
 
     // MARK: - Injected Properties
 
-    @LazyAutowired private var recipeRemoteDataSource: RecipeRemoteDataSourceProtocol
-    @LazyAutowired private var recipeLocalDataSource: RecipeLocalDataSourceProtocol
+    @Autowired private var recipeRemoteDataSource: RecipeRemoteDataSourceProtocol
+    @Autowired private var recipeLocalDataSource: RecipeLocalDataSourceProtocol
 
     // MARK: - Methods
 
@@ -41,6 +43,11 @@ class RecipeRepository: RecipeRepositoryProtocol {
             observer.onCompleted()
             return Disposables.create()
         }.asSingle()
+    }
+
+    func getFavoritedRecipes() -> [RecipeUIModel] {
+        let localResponse = recipeLocalDataSource.getFavoritedRecipes()
+        return RecipeUIModel.convert(from: localResponse)
     }
 
     func addRecipeToFavorites(with recipe: RecipeUIModel) {

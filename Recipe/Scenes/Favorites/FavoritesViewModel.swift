@@ -39,9 +39,8 @@ class FavoritesViewModel: BaseViewModel,FavoritesViewModelProtocol {
 
     func removeFromFavorites(at index: Int) {
         var value = recipesSubject.value
-        value[index].isFavorited.toggle()
-        recipesSubject.accept(value)
-
         recipeRepository.removeRecipeFromFavorites(with: value[index])
+        value.remove(at: index)
+        recipesSubject.accept(value)
     }
 }

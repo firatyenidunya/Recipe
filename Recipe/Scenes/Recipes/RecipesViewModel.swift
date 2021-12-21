@@ -14,13 +14,14 @@ protocol RecipesViewModelProtocol {
 
     func getAllRecipes()
     func addToFavorites(at index: Int)
+    func updateRecipeFavoriteStatus()
 }
 
 class RecipesViewModel: BaseViewModel, RecipesViewModelProtocol {
 
     // MARK: - Injected Properties
 
-    @LazyAutowired var recipeRepository: RecipeRepositoryProtocol
+    @Autowired var recipeRepository: RecipeRepositoryProtocol
 
     // MARK: - Properties
     
@@ -49,5 +50,14 @@ class RecipesViewModel: BaseViewModel, RecipesViewModelProtocol {
 
         recipes[index].isFavorited.toggle()
         recipesSubject.accept(recipes)
+    }
+
+    func updateRecipeFavoriteStatus() {
+        let ids = recipeRepository.getFavoritedRecipes().map { $0.id }
+        var value = recipesSubject.value
+
+        value.indices.forEach { value[$0].isFavorited = ids.contains(value[$0].id) ? true : false}
+
+        recipesSubject.accept(value)
     }
 }

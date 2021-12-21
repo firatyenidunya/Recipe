@@ -16,7 +16,7 @@ class RecipeRemoteDataSource: RecipeRemoteDataSourceProtocol {
 
     // MARK: - Injected Properties
 
-    @LazyAutowired private var recipeRemoteService: RecipeRemoteServiceProtocol
+    @Autowired private var recipeRemoteService: RecipeRemoteServiceProtocol
 
     // MARK: - Methods
 

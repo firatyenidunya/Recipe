@@ -31,32 +31,38 @@ class CollectionsRemoteDataSourceTests: XCTestCase {
     }
 
     func testGetAllCollectionsNil() throws {
+        // Given
         Resolver.test.register { CollectionsRemoteServiceMockNil() as CollectionsRemoteServiceProtocol }
 
-        let observer = scheduler.createObserver([CollectionsUIModel].self)
+        let observer = scheduler.createObserver([CollectionsResponseModel]?.self)
         sut = CollectionsRemoteDataSource()
+
+        // When
         sut.getAllCollections()
             .asObservable()
             .take(1)
             .subscribe(onNext: { result in
                 observer.onNext(result)
                 observer.onCompleted()
-        }).disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
         scheduler.start()
 
+        // Then
         XCTAssertEqual(observer.events, [
-                        .next(0, []),
-                        .completed(0)
+            .next(0, nil),
+            .completed(0)
         ])
     }
 
     func testGetAllCollectionsWithData() throws {
-        let observer = scheduler.createObserver([CollectionsUIModel].self)
+        // Given
+        let observer = scheduler.createObserver([CollectionsResponseModel]?.self)
 
         Resolver.test.register { CollectionsRemoteServiceMockWithData() as CollectionsRemoteServiceProtocol }
 
         sut = CollectionsRemoteDataSource()
 
+        // When
         sut.getAllCollections()
             .asObservable()
             .subscribe(onNext: { result in
@@ -66,9 +72,11 @@ class CollectionsRemoteDataSourceTests: XCTestCase {
 
         scheduler.start()
 
-        let expectedResult = [CollectionsUIModel(id: Identifier<CollectionIdentifier>(id: 1),
-                                                 title: "First - 1 Recipes",
-                                                 coverImageURL: URL(string: "cookpad.github.io")!)]
+        // Then
+        let expectedResult = [CollectionsResponseModel(id: Identifier<CollectionIdentifier>(id: 1),
+                                                       title: "First",
+                                                       recipeCount: 1,
+                                                       imageUrls: ["cookpad.github.io"])]
         XCTAssertEqual(observer.events,[
             .next(0, expectedResult),
             .completed(0)

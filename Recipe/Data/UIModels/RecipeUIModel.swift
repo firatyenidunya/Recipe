@@ -11,7 +11,7 @@ struct RecipeUIModel: Hashable {
     var id: Identifier<RecipeIdentifier>
     var title: String
     var coverImageURL: URL
-    var isFavorited: Bool = false
+    var isFavorited: Bool
 }
 
 extension RecipeUIModel {
@@ -42,7 +42,7 @@ extension RecipeUIModel {
                                          isFavorited: isFavorited))
         }
 
-        return Array(uiModel.prefix(10))
+        return Array(uiModel.prefix(30))
     }
 
     static func convert(from localResponse: [FavoritedRecipe]) -> [Self] {
