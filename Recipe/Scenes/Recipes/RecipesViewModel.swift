@@ -12,6 +12,7 @@ protocol RecipesViewModelProtocol {
     var recipesSubject: PublishSubject<[RecipeUIModel]> { get }
 
     func getAllRecipes()
+    func addToFavorites(at index: Int)
 }
 
 class RecipesViewModel: BaseViewModel, RecipesViewModelProtocol {
@@ -20,20 +21,21 @@ class RecipesViewModel: BaseViewModel, RecipesViewModelProtocol {
 
     @LazyAutowired var recipeRepository: RecipeRepositoryProtocol
 
-
     // MARK: - Properties
     
     var recipesSubject = PublishSubject<[RecipeUIModel]>()
-
 
     // MARK: - Methods
 
     func getAllRecipes() {
         recipeRepository
-            .getAllRecipes()
+            .getRecipes()
             .subscribe(onSuccess: { [weak self] result in
                 guard let self = self else { return }
                 self.recipesSubject.onNext(result)
             }).disposed(by: disposeBag)
+    }
+
+    func addToFavorites(at index: Int) {
     }
 }

@@ -50,6 +50,12 @@ class RecipesViewController: BaseViewController {
     }
 
     func setupTableViewAdapter() {
-        tableViewAdapter = RecipeTableViewAdapter(tableView: tableView)
+        tableViewAdapter = RecipeTableViewAdapter(tableView: tableView, delegate: self)
+    }
+}
+
+extension RecipesViewController: RecipeTableViewAdapterDelegate {
+    func didAddFavorites(at index: Int) {
+        viewModel.addToFavorites(at: index)
     }
 }

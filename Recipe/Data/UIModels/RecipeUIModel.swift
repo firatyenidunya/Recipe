@@ -9,6 +9,9 @@ import Foundation
 
 struct RecipeUIModel: Hashable {
     var id: Identifier<RecipeIdentifier>
+    var title: String
+    var coverImageURL: URL
+    var isFavorited: Bool = false
 }
 
 extension RecipeUIModel {
@@ -18,9 +21,16 @@ extension RecipeUIModel {
         var uiModel: [Self] = []
 
         response.forEach { (response) in
-            uiModel.append(RecipeUIModel(id: response.id))
+            guard let title = response.title,
+                  let coverImageURL = URL(string: response.coverImageURLString ?? "") else {
+                return
+            }
+            
+            uiModel.append(RecipeUIModel(id: response.id,
+                                         title: title,
+                                         coverImageURL: coverImageURL))
         }
 
-        return uiModel
+        return Array(uiModel.prefix(10))
     }
 }

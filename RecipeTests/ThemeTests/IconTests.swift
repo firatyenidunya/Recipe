@@ -29,4 +29,14 @@ class IconTests: XCTestCase {
         let iconsTabBarFavorites: UIImage = .iconsGrid
         XCTAssertNotEqual(iconsTabBarFavorites, UIImage())
     }
+
+    func testIconsStarFilledIsNotNil() {
+        let iconsStarFilled: UIImage = .iconsStarFilled
+        XCTAssertNotEqual(iconsStarFilled, UIImage())
+    }
+
+    func testIconsStarEmptyIsNotNil() {
+        let iconsStarEmpty: UIImage = .iconsStarEmpty
+        XCTAssertNotEqual(iconsStarEmpty, UIImage())
+    }
 }

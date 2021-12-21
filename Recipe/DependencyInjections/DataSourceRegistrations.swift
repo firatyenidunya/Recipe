@@ -10,6 +10,6 @@ import Resolver
 class DataSourceRegistrations: Registrationable {
     static func register() {
         Resolver.register { CollectionsRemoteDataSource() as CollectionsRemoteDataSourceProtocol }
-        Resolver.register { RecipeRemoteDataSource() as RecipeRemoteDataSourceProtocol }
+        Resolver.register { RecipeRemoteDataSource() as RecipeRemoteDataSourceProtocol }
     }
 }

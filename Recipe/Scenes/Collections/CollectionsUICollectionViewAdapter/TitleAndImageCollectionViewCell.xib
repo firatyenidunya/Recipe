@@ -22,7 +22,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bm3-QF-kMV">
                             <rect key="frame" x="5" y="5" width="293" height="37"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -50,6 +50,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="titleLabel" destination="Bm3-QF-kMV" id="m2Z-7u-ZXl"/>
+                <outlet property="titleLabelContainerView" destination="1tn-ZS-W2k" id="5rD-hn-RCX"/>
                 <outlet property="topImageView" destination="55W-rA-2hu" id="CO8-UC-Trl"/>
             </connections>
             <point key="canvasLocation" x="-147.10144927536234" y="280.91517857142856"/>

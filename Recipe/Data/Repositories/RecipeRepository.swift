@@ -9,20 +9,18 @@ import Foundation
 import RxSwift
 
 protocol RecipeRepositoryProtocol {
-    func getAllRecipes() -> Single<[RecipeUIModel]>
+    func getRecipes() -> Single<[RecipeUIModel]>
 }
 
 class RecipeRepository: RecipeRepositoryProtocol {
 
     // MARK: - Injected Properties
 
-    @LazyAutowired private var recieRemoteDataSource: RecipeRemoteDataSourceProtocol
-
+    @LazyAutowired private var recipeRemoteDataSource: RecipeRemoteDataSourceProtocol
 
     // MARK: - Methods
 
-    func getAllRecipes() -> Single<[RecipeUIModel]> {
-        recieRemoteDataSource.getAllRecipes()
+    func getRecipes() -> Single<[RecipeUIModel]> {
+        recipeRemoteDataSource.getRecipes()
     }
-
 }

@@ -11,10 +11,11 @@ class TitleAndImageCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var topImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabelContainerView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .secondary
+        titleLabelContainerView.backgroundColor = .primary
     }
 
     func configure(with title: String,

@@ -13,4 +13,11 @@ struct RecipeIdentifier: IdentifierType {
 
 struct RecipeResponseModel: Decodable {
     let id: Identifier<RecipeIdentifier>
+    let title: String?
+    let coverImageURLString: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id, title
+        case coverImageURLString  = "image_url"
+    }
 }

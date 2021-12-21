@@ -12,15 +12,22 @@ protocol RecipeTableViewAdapterProtocol {
     func update(with recipes: [RecipeUIModel], animate: Bool)
 }
 
+protocol RecipeTableViewAdapterDelegate: AnyObject {
+    func didAddFavorites(at index: Int)
+}
+
 class RecipeTableViewAdapter: NSObject, RecipeTableViewAdapterProtocol {
 
     // MARK: - Properties
 
+    weak var delegate: RecipeTableViewAdapterDelegate?
     var tableView: UITableView?
     private lazy var dataSource = makeDataSource()
 
-    init(tableView: UITableView?) {
+    init(tableView: UITableView?,
+         delegate: RecipeTableViewAdapterDelegate?) {
         self.tableView = tableView
+        self.delegate = delegate
         super.init()
 
         configureTableView()
@@ -29,13 +36,18 @@ class RecipeTableViewAdapter: NSObject, RecipeTableViewAdapterProtocol {
     func configureTableView() {
         RecipeTableViewCell.register(to: tableView)
         tableView?.dataSource = dataSource
+        tableView?.rowHeight = UITableView.automaticDimension
     }
 
     func makeDataSource() -> UITableViewDiffableDataSource<Section, RecipeUIModel> {
         return UITableViewDiffableDataSource(tableView: tableView!,
                                              cellProvider: {  tableView, indexPath, recipe in
                                                 let cell: RecipeTableViewCell = tableView.dequeue(at: indexPath)
-                                                cell.titleLabel.text = recipe.id.description
+                                                let cellUIModel = RecipeTableViewCellUIModel(title: recipe.title,
+                                                                                             coverImageURL: recipe.coverImageURL,
+                                                                                             indexPath: indexPath)
+                                                cell.configure(with: cellUIModel)
+                                                cell.delegate = self
                                                 return cell
             }
         )
@@ -48,6 +60,12 @@ class RecipeTableViewAdapter: NSObject, RecipeTableViewAdapterProtocol {
         snapshot.appendItems(recipes, toSection: .recipe)
 
         dataSource.apply(snapshot, animatingDifferences: animate)
+    }
+}
+
+extension RecipeTableViewAdapter: RecipeTableViewCellDelegate {
+    func didAddFavorites(at indexPath: IndexPath) {
+        delegate?.didAddFavorites(at: indexPath.row)
     }
 }
 

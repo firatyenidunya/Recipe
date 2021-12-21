@@ -18,8 +18,10 @@ class AppearanceInitializationService: NSObject, UIApplicationDelegate {
 
         let tabBarAppearance = UITabBar.appearance()
         tabBarAppearance.isTranslucent = false
+        tabBarAppearance.barTintColor = .primary
 
         let tabBarItemAppearance = UITabBarItem.appearance()
         tabBarItemAppearance.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 14)], for: [.normal])
+        tabBarAppearance.tintColor = .secondary
     }
 }
