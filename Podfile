@@ -3,7 +3,6 @@
 inhibit_all_warnings!
 
 def recipe_pods
-  pod 'NVActivityIndicatorView', '5.1.1' # NVActivityIndicatorView is a collecion of loading animations.
   pod 'SDWebImage', '5.0' # Asynchronous image downloader with cache support as a UIImageView category
   pod 'DisplaySwitcher', '~> 2.0' # Custom transition between two collection view layouts
   pod 'RxSwift', '6.2.0' # Reactive programming in swift
