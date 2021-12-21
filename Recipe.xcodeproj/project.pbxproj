@@ -103,6 +103,7 @@
 		33FAEC2C277211AC0060A61F /* RecipeEndpoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAEC2B277211AC0060A61F /* RecipeEndpoinTests.swift */; };
 		33FAEC51277248420060A61F /* BaseServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAEC50277248420060A61F /* BaseServiceTests.swift */; };
 		33FAEC56277258670060A61F /* MockLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAEC55277258670060A61F /* MockLoader.swift */; };
+		33FAEC6C27725F3A0060A61F /* RecipeUIModelConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAEC6B27725F3A0060A61F /* RecipeUIModelConverter.swift */; };
 		C3F99389643E0C7D51BEDA2B /* Pods_Recipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 667F82F891294EF514F56C65 /* Pods_Recipe.framework */; };
 /* End PBXBuildFile section */
 
@@ -226,6 +227,7 @@
 		33FAEC2B277211AC0060A61F /* RecipeEndpoinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEndpoinTests.swift; sourceTree = "<group>"; };
 		33FAEC50277248420060A61F /* BaseServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseServiceTests.swift; sourceTree = "<group>"; };
 		33FAEC55277258670060A61F /* MockLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoader.swift; sourceTree = "<group>"; };
+		33FAEC6B27725F3A0060A61F /* RecipeUIModelConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeUIModelConverter.swift; sourceTree = "<group>"; };
 		41CD1606D3C4BD4763F8D7EB /* Pods-Recipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe.release.xcconfig"; path = "Target Support Files/Pods-Recipe/Pods-Recipe.release.xcconfig"; sourceTree = "<group>"; };
 		53FF57361F500D8E4D777909 /* Pods-Recipe-RecipeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe-RecipeUITests.release.xcconfig"; path = "Target Support Files/Pods-Recipe-RecipeUITests/Pods-Recipe-RecipeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		667F82F891294EF514F56C65 /* Pods_Recipe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recipe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -465,6 +467,7 @@
 			isa = PBXGroup;
 			children = (
 				33168247277108EF0094600C /* CollectionsUIModelConverterTests.swift */,
+				33FAEC6B27725F3A0060A61F /* RecipeUIModelConverter.swift */,
 			);
 			path = UIModelConverterTests;
 			sourceTree = "<group>";
@@ -1144,6 +1147,7 @@
 				33D22A2527711513009BEC2E /* ResolverExtensions.swift in Sources */,
 				33B50BC0276FA7B200B9D1A9 /* TabBarItemsIconTextTests.swift in Sources */,
 				33FAEC51277248420060A61F /* BaseServiceTests.swift in Sources */,
+				33FAEC6C27725F3A0060A61F /* RecipeUIModelConverter.swift in Sources */,
 				33FAEC12277208270060A61F /* MockLocalService.swift in Sources */,
 				33168248277108EF0094600C /* CollectionsUIModelConverterTests.swift in Sources */,
 				331682282770FECC0094600C /* ListStateTests.swift in Sources */,

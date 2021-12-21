@@ -6,10 +6,10 @@
 //
 
 import UIKit
-import Kingfisher
+import SDWebImage
 
 extension UIImageView {
     func setImage(with url: URL) {
-        kf.setImage(with: url)
+        sd_setImage(with: url)
     }
 }

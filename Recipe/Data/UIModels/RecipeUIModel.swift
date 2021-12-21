@@ -42,7 +42,7 @@ extension RecipeUIModel {
                                          isFavorited: isFavorited))
         }
 
-        return Array(uiModel.prefix(30))
+        return uiModel
     }
 
     static func convert(from localResponse: [FavoritedRecipe]) -> [Self] {

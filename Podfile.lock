@@ -1,6 +1,5 @@
 PODS:
   - DisplaySwitcher (2.0)
-  - Kingfisher (7.1.2)
   - NVActivityIndicatorView (5.1.1):
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
@@ -13,37 +12,40 @@ PODS:
   - RxSwift (6.2.0)
   - RxTest (6.2.0):
     - RxSwift (= 6.2.0)
+  - SDWebImage (5.0.0):
+    - SDWebImage/Core (= 5.0.0)
+  - SDWebImage/Core (5.0.0)
 
 DEPENDENCIES:
   - DisplaySwitcher (~> 2.0)
-  - Kingfisher (~> 7.0)
   - NVActivityIndicatorView (= 5.1.1)
   - Resolver (= 1.5.0)
   - RxCocoa
   - RxSwift (= 6.2.0)
   - RxTest
+  - SDWebImage (= 5.0)
 
 SPEC REPOS:
   trunk:
     - DisplaySwitcher
-    - Kingfisher
     - NVActivityIndicatorView
     - Resolver
     - RxCocoa
     - RxRelay
     - RxSwift
     - RxTest
+    - SDWebImage
 
 SPEC CHECKSUMS:
   DisplaySwitcher: 1db23ee6a45fbebac733917cc002204adad37d28
-  Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   Resolver: 68984624572763018fd8ec7b8e3e8df0e3b6bba5
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   RxTest: 0c692fa672b694373ba86d2b00033595297a2831
+  SDWebImage: 5de80a0302de9e377e62f47d2fa1304efff0e55f
 
-PODFILE CHECKSUM: bcc3c2c283c2a0c45574866cc6f8b3eddb0a44b7
+PODFILE CHECKSUM: e70664e4e24c5c48932fc39a12ab37a6dfb3671f
 
 COCOAPODS: 1.10.0

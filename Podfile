@@ -1,9 +1,10 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
+inhibit_all_warnings!
 
 def recipe_pods
   pod 'NVActivityIndicatorView', '5.1.1' # NVActivityIndicatorView is a collecion of loading animations.
-  pod 'Kingfisher', '~> 7.0' # A lightweight, pure-Swift library for downloading and caching images from the web.
+  pod 'SDWebImage', '5.0' # Asynchronous image downloader with cache support as a UIImageView category
   pod 'DisplaySwitcher', '~> 2.0' # Custom transition between two collection view layouts
   pod 'RxSwift', '6.2.0' # Reactive programming in swift
   pod 'RxCocoa' # Reactive programming in swift
