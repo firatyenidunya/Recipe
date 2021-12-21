@@ -18,22 +18,26 @@ protocol LocalServiceProtocol {
 }
 
 class LocalService: LocalServiceProtocol {
+    static let modelName = "Model"
 
-    let context: NSManagedObjectContext
-
-    static var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Model")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
+    static let model: NSManagedObjectModel = {
+      let modelURL = Bundle.main.url(forResource: modelName, withExtension: "momd")!
+      return NSManagedObjectModel(contentsOf: modelURL)!
     }()
 
-    init(context: NSManagedObjectContext = LocalService.persistentContainer.viewContext) {
-        self.context = context
-    }
+    lazy var context: NSManagedObjectContext = {
+      return persistentContainer.viewContext
+    }()
+
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: LocalService.modelName, managedObjectModel: LocalService.model)
+        container.loadPersistentStores { _, error in
+          if let error = error as NSError? {
+            fatalError("Unresolved error \(error), \(error.userInfo)")
+          }
+        }
+        return container
+    }()
 
     func fetch<T: NSManagedObject>(_ objectType: T.Type) -> [T] {
         let entityName = String(describing: objectType)

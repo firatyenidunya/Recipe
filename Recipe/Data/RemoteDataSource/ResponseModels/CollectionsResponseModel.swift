@@ -11,7 +11,7 @@ struct CollectionIdentifier: IdentifierType {
     typealias KeyType = Int
 }
 
-struct CollectionsResponseModel: Decodable {
+struct CollectionsResponseModel: Decodable, Equatable {
     let id: Identifier<CollectionIdentifier>
     let title: String?
     let recipeCount: Int?

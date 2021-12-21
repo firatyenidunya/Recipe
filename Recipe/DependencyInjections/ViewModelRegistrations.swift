@@ -11,5 +11,6 @@ class ViewModelRegistrations: Registrationable {
     static func register() {
         Resolver.register { CollectionsViewModel() as CollectionsViewModelProtocol }
         Resolver.register { RecipesViewModel() as RecipesViewModelProtocol }
+        Resolver.register { FavoritesViewModel() as FavoritesViewModelProtocol }
     }
 }
