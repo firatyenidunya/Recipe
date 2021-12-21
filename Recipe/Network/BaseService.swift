@@ -10,9 +10,9 @@ import RxSwift
 
 final class BaseService: BaseServiceProtocol {
 
-    var urlSession: Loader
+    var urlSession: NetworkLoader
 
-    init(urlSession: Loader = URLSession.shared) {
+    init(urlSession: NetworkLoader = URLSession.shared) {
         self.urlSession = urlSession
     }
 

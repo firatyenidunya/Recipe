@@ -8,7 +8,7 @@
 import Foundation
 @testable import Recipe
 
-class MockLoader: Loader {
+class MockLoader: NetworkLoader {
     var data: Data?
     var urlResponse: URLResponse?
     var error: Error?

@@ -7,12 +7,8 @@
 
 import Foundation
 
-extension URLSession: Loader {
+extension URLSession: NetworkLoader {
     func load(using request: URLRequest, with completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
         self.dataTask(with: request, completionHandler: completion).resume()
-    }
-
-    func load(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        self.dataTask(with: url, completionHandler: completionHandler).resume()
     }
 }
