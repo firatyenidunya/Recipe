@@ -27,12 +27,15 @@ The app architecture is MVVM + Repository Pattern. Let's see in a simple usage,
         -> ViewModel
             -> Repository 
                 -> DataSource (RemoteDataSource || LocalDataSource)
-                    -> Service (RemoteService || LocalService)
+                    -> Service (RemoteService || XLocalService)
+                        -> BaseService || LocalService
                         
-- ViewModel: Receives information from ViewController and handles it. Interacts with repositories.
-- Repository: Gets  data from RemoteDataSource or LocalDataSource and converts it to UIModel then sends it to the ViewModel.
-- LocalDataSource: Gets data from local service and sends it to the repository.
-- RemoteDataSource: Gets data from remote service and sends it to the repository. It can include more then one service and things like merging two reqeusts can be done here.
+- **ViewModel**: Receives information from ViewController and handles it. Interacts with repositories.
+- **Repository**: Gets  data from RemoteDataSource or LocalDataSource and converts it to UIModel then sends it to the ViewModel.
+- **LocalDataSource**: Gets data from local service and sends it to the repository.
+- **RemoteDataSource**: Gets data from remote service and sends it to the repository. It can include more then one service and things like merging two reqeusts can be done here.
+- **XLocalService**: Gets data from base LocalService and sends it back.
+- **RemoteService**: Gets data from remote and sends it back.
 
 
 ### Project Structure
