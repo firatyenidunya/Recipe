@@ -15,8 +15,8 @@ Table of Contents
 
 
 ### Setup
-
-Open Recipe.xcworkspace and run. There is no any other steps.
+- Run` pod install` on terminal. (If your cocoapods repository is not up to date please run `pod repo update` first.)
+- The open Recipe.xcworkspace and run.
 
 
 ### Project Architecture
