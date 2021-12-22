@@ -15,8 +15,8 @@ Table of Contents
 
 
 ### Setup
-
-Open Recipe.xcworkspace and run. There is no any other steps.
+- Run` pod install` on terminal. (If your cocoapods repository is not up to date please run `pod repo update` first.)
+- Then open Recipe.xcworkspace and run.
 
 
 ### Project Architecture
@@ -65,8 +65,8 @@ Basic functionalities are explained here. Recipe app also supports dark mode.
 | Feature             | Description                                          | ViewController |
 |-------------------------|-------------------------------------------------------|---------------------|
 |**Listing All Collections**| Lists all collections as grid or list| CollectionsViewController|
-|**Listing All Recipes**| Lists all recipies. User can add a recipe to favorites or remove it from favorites.|RecipesViewController|
-|**Listing Favorited Recipies**| Lists all favorited recipies. User can remove a recipe from favorited list.| FavoritesViewController|
+|**Listing All Recipes**| Lists all recipes. User can add a recipe to favorites or remove it from favorites.|RecipesViewController|
+|**Listing Favorited Recipes**| Lists all favorited recipes. User can remove a recipe from favorited list.| FavoritesViewController|
 
 
 ### Things to Do 

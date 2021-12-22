@@ -60,7 +60,11 @@ class RecipeTableViewAdapter: NSObject, RecipeTableViewAdapterProtocol {
 
         snapshot.appendItems(recipes, toSection: .recipe)
 
-        dataSource.apply(snapshot, animatingDifferences: animate)
+        if #available(iOS 15.0, *) {
+            dataSource.applySnapshotUsingReloadData(snapshot, completion: nil)
+        } else {
+            dataSource.apply(snapshot)
+        }
     }
 }
 
