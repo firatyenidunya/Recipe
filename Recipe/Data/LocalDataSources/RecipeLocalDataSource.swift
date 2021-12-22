@@ -15,15 +15,15 @@ protocol RecipeLocalDataSourceProtocol {
 
 class RecipeLocalDataSource: RecipeLocalDataSourceProtocol {
 
-    @Autowired private var localService: LocalServiceProtocol
+    @Autowired private var recipeLocalService: RecipeLocalServiceProtocol
 
     func getFavoritedRecipes() -> [FavoritedRecipe] {
-        return localService.fetch(FavoritedRecipe.self)
+        return recipeLocalService.getFavoritedRecipes()
     }
 
     func addRecipeToFavorites(with recipe: RecipeUIModel) {
         var recipes = getFavoritedRecipes()
-        let newRecipe = FavoritedRecipe(context: localService.context)
+        let newRecipe = FavoritedRecipe(context: recipeLocalService.getContext())
 
         newRecipe.coverImageURL = recipe.coverImageURL
         newRecipe.id = NSNumber(value: recipe.id.id)
@@ -31,7 +31,7 @@ class RecipeLocalDataSource: RecipeLocalDataSourceProtocol {
         newRecipe.isFavorited = true
 
         recipes.append(newRecipe)
-        try? localService.save()
+        recipeLocalService.save()
     }
 
     func removeRecipeFromFavorites(with recipe: RecipeUIModel) {
@@ -39,6 +39,6 @@ class RecipeLocalDataSource: RecipeLocalDataSourceProtocol {
         guard let selectedRecipe = recipes.filter({ $0.id == NSNumber(value: recipe.id.id) }).first else {
             return
         }
-        try? localService.delete(selectedRecipe)
+        recipeLocalService.deleteRecipe(with: selectedRecipe)
     }
 }

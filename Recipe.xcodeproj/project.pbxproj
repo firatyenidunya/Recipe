@@ -106,6 +106,8 @@
 		33FAEC6C27725F3A0060A61F /* RecipeUIModelConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAEC6B27725F3A0060A61F /* RecipeUIModelConverter.swift */; };
 		33FAECDB277266320060A61F /* RecipeRemoteServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAECDA277266320060A61F /* RecipeRemoteServiceMock.swift */; };
 		33FAECF6277267A60060A61F /* RecipeRemoteDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAECF5277267A60060A61F /* RecipeRemoteDataSourceTests.swift */; };
+		33FAED7427727B220060A61F /* README.MD in Resources */ = {isa = PBXBuildFile; fileRef = 33FAED7327727B220060A61F /* README.MD */; };
+		33FAED80277300EB0060A61F /* RecipeLocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAED7F277300EB0060A61F /* RecipeLocalService.swift */; };
 		C3F99389643E0C7D51BEDA2B /* Pods_Recipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 667F82F891294EF514F56C65 /* Pods_Recipe.framework */; };
 /* End PBXBuildFile section */
 
@@ -232,6 +234,8 @@
 		33FAEC6B27725F3A0060A61F /* RecipeUIModelConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeUIModelConverter.swift; sourceTree = "<group>"; };
 		33FAECDA277266320060A61F /* RecipeRemoteServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRemoteServiceMock.swift; sourceTree = "<group>"; };
 		33FAECF5277267A60060A61F /* RecipeRemoteDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRemoteDataSourceTests.swift; sourceTree = "<group>"; };
+		33FAED7327727B220060A61F /* README.MD */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.MD; sourceTree = "<group>"; };
+		33FAED7F277300EB0060A61F /* RecipeLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeLocalService.swift; sourceTree = "<group>"; };
 		41CD1606D3C4BD4763F8D7EB /* Pods-Recipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe.release.xcconfig"; path = "Target Support Files/Pods-Recipe/Pods-Recipe.release.xcconfig"; sourceTree = "<group>"; };
 		53FF57361F500D8E4D777909 /* Pods-Recipe-RecipeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe-RecipeUITests.release.xcconfig"; path = "Target Support Files/Pods-Recipe-RecipeUITests/Pods-Recipe-RecipeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		667F82F891294EF514F56C65 /* Pods_Recipe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recipe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -285,8 +289,7 @@
 		330425AD2771C5F0005AB1EB /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				330425CC2771C89B005AB1EB /* LocalService.swift */,
-				330425CB2771C87F005AB1EB /* LocalDataSources */,
+				33FAED7E277300DA0060A61F /* LocalServices */,
 				330425BA2771C727005AB1EB /* CoreDataModel */,
 				330425B42771C6A8005AB1EB /* Model.xcdatamodeld */,
 			);
@@ -312,9 +315,11 @@
 		3316812B277099E30094600C /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				3316813627709ABD0094600C /* ResponseModels */,
 				3316813F27709B710094600C /* UIModels */,
 				3316812D27709A430094600C /* Repositories */,
 				3316812C27709A3C0094600C /* RemoteDataSource */,
+				330425CB2771C87F005AB1EB /* LocalDataSources */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -322,7 +327,6 @@
 		3316812C27709A3C0094600C /* RemoteDataSource */ = {
 			isa = PBXGroup;
 			children = (
-				3316813627709ABD0094600C /* ResponseModels */,
 				3316812E27709A550094600C /* CollectionsRemoteDataSource.swift */,
 				33BCDD0927712DC70082873C /* RecipeRemoteDataSource.swift */,
 			);
@@ -504,6 +508,7 @@
 				33A10F18276DE67F00051B8F /* Products */,
 				101B6DBD9C9546BBD92704ED /* Pods */,
 				D03BA7CBA74CE06A0D107519 /* Frameworks */,
+				33FAED7327727B220060A61F /* README.MD */,
 			);
 			sourceTree = "<group>";
 		};
@@ -809,6 +814,15 @@
 			path = RemoteServices;
 			sourceTree = "<group>";
 		};
+		33FAED7E277300DA0060A61F /* LocalServices */ = {
+			isa = PBXGroup;
+			children = (
+				330425CC2771C89B005AB1EB /* LocalService.swift */,
+				33FAED7F277300EB0060A61F /* RecipeLocalService.swift */,
+			);
+			path = LocalServices;
+			sourceTree = "<group>";
+		};
 		D03BA7CBA74CE06A0D107519 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -934,6 +948,7 @@
 				33A10F22276DE67F00051B8F /* Main.storyboard in Resources */,
 				33B50BA6276F9D2A00B9D1A9 /* RecipesViewController.xib in Resources */,
 				33FAEBF02771EA7B0060A61F /* FavoritesViewController.xib in Resources */,
+				33FAED7427727B220060A61F /* README.MD in Resources */,
 				33BCDD24277135FF0082873C /* RecipeTableViewCell.xib in Resources */,
 				33A10FAC276DF0F800051B8F /* Assets.xcassets in Resources */,
 				33A10F91276DE9DC00051B8F /* Icons.xcassets in Resources */,
@@ -1109,6 +1124,7 @@
 				33B50BA5276F9D2A00B9D1A9 /* RecipesViewController.swift in Sources */,
 				331682222770E36C0094600C /* ListState.swift in Sources */,
 				33B50B2A276F5F7100B9D1A9 /* ServiceRegistrations.swift in Sources */,
+				33FAED80277300EB0060A61F /* RecipeLocalService.swift in Sources */,
 				33A10F70276DE87B00051B8F /* ImageStyle.swift in Sources */,
 				33B50AEA276EAD5D00B9D1A9 /* RecipeError.swift in Sources */,
 				3316821D2770D7910094600C /* LayoutProtocol.swift in Sources */,

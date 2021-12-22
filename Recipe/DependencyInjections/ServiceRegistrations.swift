@@ -13,5 +13,6 @@ class ServiceRegistrations: Registrationable {
         Resolver.register { LocalService() as LocalServiceProtocol }.scope(.application)
         Resolver.register { CollectionsRemoteService() as CollectionsRemoteServiceProtocol }
         Resolver.register { RecipeRemoteService() as RecipeRemoteServiceProtocol }
+        Resolver.register { RecipeLocalService() as RecipeLocalServiceProtocol }
     }
 }
