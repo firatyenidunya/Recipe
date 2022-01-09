@@ -41,7 +41,7 @@ class RecipeTableViewAdapter: NSObject, RecipeTableViewAdapterProtocol {
 
     func makeDataSource() -> UITableViewDiffableDataSource<Section, RecipeUIModel> {
         return UITableViewDiffableDataSource(tableView: tableView!,
-                                             cellProvider: {  tableView, indexPath, recipe in
+                                             cellProvider: {  [weak self] tableView, indexPath, recipe in
                                                 let cell: RecipeTableViewCell = tableView.dequeue(at: indexPath)
                                                 let cellUIModel = RecipeTableViewCellUIModel(title: recipe.title,
                                                                                              coverImageURL: recipe.coverImageURL,
