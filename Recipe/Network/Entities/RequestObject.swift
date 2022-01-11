@@ -16,9 +16,11 @@ struct RequestObject {
     private var endpoint: EndpointComponent {
         return EndpointComponent(path: path, queryItems: parameters)
     }
-
-    var urlRequest: URLRequest? {
-        guard let url = endpoint.url else { return nil }
+    
+    func getUrlRequest() throws -> URLRequest {
+        guard let url = endpoint.url else {
+            throw RecipeError.invalidUrlRequest
+        }
 
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethod.description

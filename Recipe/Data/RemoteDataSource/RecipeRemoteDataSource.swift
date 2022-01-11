@@ -6,10 +6,9 @@
 //
 
 import Foundation
-import RxSwift
 
 protocol RecipeRemoteDataSourceProtocol {
-    func getAllRecipes() -> Single<[RecipeResponseModel]?>
+    func getAllRecipes() async throws -> [RecipeResponseModel]
 }
 
 class RecipeRemoteDataSource: RecipeRemoteDataSourceProtocol {
@@ -20,7 +19,7 @@ class RecipeRemoteDataSource: RecipeRemoteDataSourceProtocol {
 
     // MARK: - Methods
 
-    func getAllRecipes() -> Single<[RecipeResponseModel]?> {
-        recipeRemoteService.getAllRecipes()
+    func getAllRecipes() async throws -> [RecipeResponseModel] {
+        try await recipeRemoteService.getAllRecipes()
     }
 }

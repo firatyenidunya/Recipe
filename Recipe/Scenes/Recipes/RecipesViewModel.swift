@@ -6,13 +6,13 @@
 //
 
 import Foundation
-import RxCocoa
-import RxSwift
+import Combine
+import SwiftUI
 
 protocol RecipesViewModelProtocol {
-    var recipesSubject: BehaviorRelay<[RecipeUIModel]> { get }
+    var recipesPublisher: Published<[RecipeUIModel]>.Publisher { get }
 
-    func getAllRecipes()
+    func getAllRecipes() async
     func addToFavorites(at index: Int)
     func updateRecipeFavoriteStatus()
 }
@@ -25,21 +25,17 @@ class RecipesViewModel: BaseViewModel, RecipesViewModelProtocol {
 
     // MARK: - Properties
     
-    var recipesSubject = BehaviorRelay<[RecipeUIModel]>(value: [])
-
+    @Published var recipes: [RecipeUIModel] = []
+    var recipesPublisher: Published<[RecipeUIModel]>.Publisher { $recipes }
+    
     // MARK: - Methods
 
-    func getAllRecipes() {
-        recipeRepository
-            .getRecipes()
-            .subscribe(onSuccess: { [weak self] result in
-                guard let self = self else { return }
-                self.recipesSubject.accept(result)
-            }).disposed(by: disposeBag)
+    func getAllRecipes() async {
+        recipes = (try? await recipeRepository.getRecipes()) ?? []
     }
-
+    
     func addToFavorites(at index: Int) {
-        var recipes = recipesSubject.value
+        var recipes = self.recipes
         let selectedRecipe = recipes[index]
 
         if !selectedRecipe.isFavorited {
@@ -49,15 +45,15 @@ class RecipesViewModel: BaseViewModel, RecipesViewModelProtocol {
         }
 
         recipes[index].isFavorited.toggle()
-        recipesSubject.accept(recipes)
+        self.recipes = recipes
     }
 
     func updateRecipeFavoriteStatus() {
         let ids = recipeRepository.getFavoritedRecipes().map { $0.id }
-        var value = recipesSubject.value
+        var value = self.recipes
 
         value.indices.forEach { value[$0].isFavorited = ids.contains(value[$0].id) ? true : false}
 
-        recipesSubject.accept(value)
+        self.recipes = value
     }
 }

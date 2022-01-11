@@ -6,18 +6,17 @@
 //
 
 import Foundation
-import RxSwift
 
 protocol CollectionsRemoteServiceProtocol {
-    func getAllCollections() -> Single<[CollectionsResponseModel]?>
+    func getAllCollections() async throws -> [CollectionsResponseModel]
 }
 
 class CollectionsRemoteService: CollectionsRemoteServiceProtocol, Requestable {
     typealias TargetEndpoint = CollectionsEndpoint
 
     // MARK: - Methods
-
-    func getAllCollections() -> Single<[CollectionsResponseModel]?> {
-        request(with: RequestObject(path: build(targetEndpoint: .allCollections)))
+    
+    func getAllCollections() async throws -> [CollectionsResponseModel] {
+        try await request(with: RequestObject(path: build(targetEndpoint: .allCollections)))
     }
 }

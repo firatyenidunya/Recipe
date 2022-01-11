@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import RxSwift
 
 class BaseViewController: UIViewController, NavigatonBarConfigurable {
 
@@ -16,8 +15,6 @@ class BaseViewController: UIViewController, NavigatonBarConfigurable {
     @IBOutlet weak var navigationBar: UINavigationBar?
 
     // MARK: - Properties
-
-    var disposeBag = DisposeBag()
 
     // MARK: - LifCycle Methods
 

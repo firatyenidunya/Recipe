@@ -59,8 +59,7 @@ class RecipeTableViewAdapter: NSObject, RecipeTableViewAdapterProtocol {
         snapshot.appendSections(Section.allCases)
 
         snapshot.appendItems(recipes, toSection: .recipe)
-
-        dataSource.apply(snapshot, animatingDifferences: animate)
+        dataSource.applySnapshotUsingReloadData(snapshot, completion: nil)
     }
 }
 

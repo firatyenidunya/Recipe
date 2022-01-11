@@ -6,14 +6,13 @@
 //
 
 import Foundation
-import RxSwift
 import Resolver
 
 protocol Requestable {
     associatedtype TargetEndpoint: TargetEndpointProtocol
 
     func request<T: Decodable>(baseService: BaseServiceProtocol,
-                               with object: RequestObject) -> Single<T>
+                                with object: RequestObject) async throws -> T
 }
 
 extension Requestable {
@@ -25,7 +24,7 @@ extension Requestable {
 
     /// Sends requst to remote with given RequestObject
     func request<T: Decodable>(baseService: BaseServiceProtocol = Resolver.resolve(),
-                               with object: RequestObject) -> Single<T> {
-        baseService.request(with: object)
+                                with object: RequestObject) async throws -> T {
+        return try await baseService.request(with: object)
     }
 }

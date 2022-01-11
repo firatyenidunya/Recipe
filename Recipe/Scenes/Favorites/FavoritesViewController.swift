@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class FavoritesViewController: BaseViewController {
 
@@ -16,7 +17,8 @@ class FavoritesViewController: BaseViewController {
     // MARK: - Injected Properties
 
     @LazyAutowired var viewModel: FavoritesViewModelProtocol
-
+    private var cancellables: Set<AnyCancellable> = []
+    
     // MARK: - Properties
 
     var tableViewAdapter: RecipeTableViewAdapterProtocol?
@@ -37,13 +39,12 @@ class FavoritesViewController: BaseViewController {
 
     func setupBindings() {
         viewModel
-            .recipesSubject
-            .observe(on: Schedulers.main)
-            .skip(1)
-            .subscribe(onNext: { [weak self] recipes in
+            .recipesPublisher
+            .receive(on: RunLoop.main)
+            .sink { [weak self] value in
                 guard let self = self else { return }
-                self.tableViewAdapter?.update(with: recipes, animate: false)
-            }).disposed(by: disposeBag)
+                self.tableViewAdapter?.update(with: value, animate: false)
+            }.store(in: &cancellables)
     }
 
     // MARK: - NavigationBar

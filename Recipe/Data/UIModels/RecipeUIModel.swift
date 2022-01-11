@@ -15,10 +15,8 @@ struct RecipeUIModel: Hashable {
 }
 
 extension RecipeUIModel {
-    static func convert(from response: [RecipeResponseModel]?,
+    static func convert(from response: [RecipeResponseModel],
                         from localResponse: [FavoritedRecipe]) -> [Self] {
-        guard let response = response else { return [] }
-
         var uiModel: [Self] = []
 
         let favoritedRecipeIds = localResponse.compactMap({ recipe -> Identifier<RecipeIdentifier> in

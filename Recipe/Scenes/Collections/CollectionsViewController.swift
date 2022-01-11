@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 class CollectionsViewController: BaseViewController {
 
@@ -21,6 +22,7 @@ class CollectionsViewController: BaseViewController {
     // MARK: - Properties
 
     var collectionViewAdapter: CollectionsUICollectionViewAdapterProtocol?
+    private var cancellables: Set<AnyCancellable> = []
 
     // MARK: - LifeCycle Methods
 
@@ -29,19 +31,22 @@ class CollectionsViewController: BaseViewController {
         setupBinding()
         configureNavigationBar()
         setupCollectionViewAdapter()
-        viewModel.getAllCollections()
+        
+        Task {
+            await viewModel.getAllCollections()
+        }
     }
 
     // MARK: - Bindings
 
     func setupBinding() {
         viewModel
-            .collectionsSubject
-            .observe(on: Schedulers.main)
-            .subscribe(onNext: { [weak self] result in
+            .collectionsPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] value in
                 guard let self = self else { return }
-                self.collectionViewAdapter?.reloadData(with: result)
-            }).disposed(by: disposeBag)
+                self.collectionViewAdapter?.reloadData(with: value)
+            }.store(in: &cancellables)
     }
 
     // MARK: - NavigationBar

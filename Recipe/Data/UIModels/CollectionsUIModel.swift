@@ -15,9 +15,7 @@ struct CollectionsUIModel: Equatable {
 }
 
 extension CollectionsUIModel {
-    static func convert(from responseModel: [CollectionsResponseModel]?) -> [Self] {
-        guard let responseModel = responseModel else { return [] }
-
+    static func convert(from responseModel: [CollectionsResponseModel]) -> [Self] {
         var uiModel: [CollectionsUIModel] = []
 
         responseModel.forEach { (response) in

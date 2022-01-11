@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class RecipesViewController: BaseViewController {
 
@@ -20,7 +21,8 @@ class RecipesViewController: BaseViewController {
     // MARK: - Properties
 
     var tableViewAdapter: RecipeTableViewAdapterProtocol?
-
+    private var cancellables: Set<AnyCancellable> = []
+    
     // MARK: - LifeCycle Methods
 
     override func viewDidLoad() {
@@ -28,25 +30,27 @@ class RecipesViewController: BaseViewController {
         setupBindings()
         configureNavigationBar()
         setupTableViewAdapter()
-        viewModel.getAllRecipes()
+      
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.updateRecipeFavoriteStatus()
+        Task {
+            await viewModel.getAllRecipes()
+        }
     }
 
     // MARK: - Methods
 
     func setupBindings() {
         viewModel
-            .recipesSubject
-            .observe(on: Schedulers.main)
-            .skip(1)
-            .subscribe(onNext: { [weak self] recipes in
+            .recipesPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] value in
                 guard let self = self else { return }
-                self.tableViewAdapter?.update(with: recipes, animate: false)
-            }).disposed(by: disposeBag)
+                self.tableViewAdapter?.update(with: value, animate: false)
+            }.store(in: &cancellables)
     }
 
     // MARK: - NavigationBar

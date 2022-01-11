@@ -26,7 +26,6 @@
 		3316816C2770A4360094600C /* RepositoryRegistrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3316816B2770A4360094600C /* RepositoryRegistrations.swift */; };
 		331681722770A4960094600C /* ViewModelRegistrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331681712770A4960094600C /* ViewModelRegistrations.swift */; };
 		331681782770AA6A0094600C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331681772770AA6A0094600C /* BaseViewModel.swift */; };
-		3316817E2770AF080094600C /* Schedulers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3316817D2770AF080094600C /* Schedulers.swift */; };
 		331681862770AF9C0094600C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331681852770AF9C0094600C /* BaseViewController.swift */; };
 		3316818B2770B0AF0094600C /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3316818A2770B0AF0094600C /* Identifier.swift */; };
 		331681C12770BFF50094600C /* NavigatonBarConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331681C02770BFF50094600C /* NavigatonBarConfigurable.swift */; };
@@ -56,7 +55,6 @@
 		33A10F86276DE95800051B8F /* Theme+UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A10F85276DE95800051B8F /* Theme+UIColorExtension.swift */; };
 		33A10F8C276DE9C500051B8F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A10F8B276DE9C500051B8F /* Colors.xcassets */; };
 		33A10F91276DE9DC00051B8F /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A10F90276DE9DC00051B8F /* Icons.xcassets */; };
-		33A10F96276DE9EB00051B8F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A10F95276DE9EB00051B8F /* Images.xcassets */; };
 		33A10F9C276DEB0B00051B8F /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A10F9B276DEB0B00051B8F /* ColorTests.swift */; };
 		33A10FA4276DEE8F00051B8F /* IconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A10FA3276DEE8F00051B8F /* IconTests.swift */; };
 		33A10FAC276DF0F800051B8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A10FAB276DF0F800051B8F /* Assets.xcassets */; };
@@ -149,7 +147,6 @@
 		3316816B2770A4360094600C /* RepositoryRegistrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRegistrations.swift; sourceTree = "<group>"; };
 		331681712770A4960094600C /* ViewModelRegistrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelRegistrations.swift; sourceTree = "<group>"; };
 		331681772770AA6A0094600C /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		3316817D2770AF080094600C /* Schedulers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedulers.swift; sourceTree = "<group>"; };
 		331681852770AF9C0094600C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3316818A2770B0AF0094600C /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		331681C02770BFF50094600C /* NavigatonBarConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatonBarConfigurable.swift; sourceTree = "<group>"; };
@@ -185,7 +182,6 @@
 		33A10F85276DE95800051B8F /* Theme+UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+UIColorExtension.swift"; sourceTree = "<group>"; };
 		33A10F8B276DE9C500051B8F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		33A10F90276DE9DC00051B8F /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
-		33A10F95276DE9EB00051B8F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		33A10F9B276DEB0B00051B8F /* ColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
 		33A10FA3276DEE8F00051B8F /* IconTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTests.swift; sourceTree = "<group>"; };
 		33A10FAB276DF0F800051B8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -390,7 +386,6 @@
 		3316817C2770AEF60094600C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				3316817D2770AF080094600C /* Schedulers.swift */,
 				3316818A2770B0AF0094600C /* Identifier.swift */,
 			);
 			path = Utility;
@@ -617,7 +612,6 @@
 			children = (
 				33A10F8B276DE9C500051B8F /* Colors.xcassets */,
 				33A10F90276DE9DC00051B8F /* Icons.xcassets */,
-				33A10F95276DE9EB00051B8F /* Images.xcassets */,
 				33A10FAB276DF0F800051B8F /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -863,7 +857,6 @@
 				33A10F29276DE68000051B8F /* Sources */,
 				33A10F2A276DE68000051B8F /* Frameworks */,
 				33A10F2B276DE68000051B8F /* Resources */,
-				4C61A1D8DF47D66625E63E64 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -944,7 +937,6 @@
 			files = (
 				33A10F27276DE68000051B8F /* LaunchScreen.storyboard in Resources */,
 				33A10F8C276DE9C500051B8F /* Colors.xcassets in Resources */,
-				33A10F96276DE9EB00051B8F /* Images.xcassets in Resources */,
 				33A10F22276DE67F00051B8F /* Main.storyboard in Resources */,
 				33B50BA6276F9D2A00B9D1A9 /* RecipesViewController.xib in Resources */,
 				33FAEBF02771EA7B0060A61F /* FavoritesViewController.xib in Resources */,
@@ -1018,23 +1010,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4C61A1D8DF47D66625E63E64 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RecipeTests/Pods-RecipeTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RecipeTests/Pods-RecipeTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RecipeTests/Pods-RecipeTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		873F423D5E7B0A2B373B7E00 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1106,7 +1081,6 @@
 				33B50BB6276FA21400B9D1A9 /* FavoritesViewController.swift in Sources */,
 				33A11010276E148100051B8F /* DependencyRegistrationService.swift in Sources */,
 				33BCDD14277130030082873C /* RecipeUIModel.swift in Sources */,
-				3316817E2770AF080094600C /* Schedulers.swift in Sources */,
 				331681272770991C0094600C /* CollectionsViewModel.swift in Sources */,
 				331682032770D2ED0094600C /* UICollectionViewExtensions.swift in Sources */,
 				33B50B69276F666D00B9D1A9 /* URLSessionExtensions.swift in Sources */,
@@ -1288,7 +1262,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1343,7 +1317,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

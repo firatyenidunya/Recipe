@@ -6,13 +6,13 @@
 //
 
 import Foundation
-import RxSwift
+import Combine
 
 protocol CollectionsViewModelProtocol {
     var listState: ListState { get set }
-    var collectionsSubject: PublishSubject<[CollectionsUIModel]> { get }
-
-    func getAllCollections()
+    var collectionsPublisher: Published<[CollectionsUIModel]>.Publisher { get }
+    
+    func getAllCollections() async
     func toggleListState()
 }
 
@@ -24,18 +24,19 @@ class CollectionsViewModel: BaseViewModel, CollectionsViewModelProtocol {
 
     // MARK: - Properties
 
-    var collectionsSubject = PublishSubject<[CollectionsUIModel]>()
+    @Published var collections: [CollectionsUIModel] = []
+    var collectionsPublisher: Published<[CollectionsUIModel]>.Publisher { $collections }
+
     var listState: ListState = .list
 
     // MARK: - Methods
 
-    func getAllCollections() {
-        collectionsRepository
-            .getAllCollections()
-            .subscribe(onSuccess: { [weak self] result in
-                guard let self = self else { return }
-                self.collectionsSubject.onNext(result)
-            }).disposed(by: disposeBag)
+    func getAllCollections() async {
+        do {
+            collections = try await collectionsRepository.getAllCollections()
+        } catch {
+            // missing error handling
+        }
     }
 
     func toggleListState() {

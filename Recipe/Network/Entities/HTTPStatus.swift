@@ -12,7 +12,7 @@ enum HTTPStatus: Int, Error {
     case `continue` = 100
     case switchingProtocols = 101
     case processing = 102
-
+    
     //2xx Success
     case okay = 200
     case created = 201
@@ -24,7 +24,7 @@ enum HTTPStatus: Int, Error {
     case multiStatus = 207
     case alreadyReported = 208
     case IMUsed = 226
-
+    
     // 3xx Redirection
     case multipleChoices = 300
     case movedPermanently = 301
@@ -35,7 +35,7 @@ enum HTTPStatus: Int, Error {
     case switchProxy = 306
     case temporaryRedirect = 307
     case permenantRedirect = 308
-
+    
     // 4xx Client Error
     case badRequest = 400
     case unauthorized = 401
@@ -67,7 +67,7 @@ enum HTTPStatus: Int, Error {
     case connectionClosedWithoutResponse = 444
     case unavailableForLegalReasons = 451
     case clientClosedRequest = 499
-
+    
     // 5xx Server Error
     case internalServerError = 500
     case notImplemented = 501
@@ -81,4 +81,30 @@ enum HTTPStatus: Int, Error {
     case notExtended = 510
     case networkAuthenticationRequired = 511
     case networkConnectTimeoutError = 599
+    
+    enum HTTPStatusType {
+        case informational
+        case success
+        case redirection
+        case clientError
+        case serverError
+        case unknown
+    }
+    
+    var httpStatusType: HTTPStatusType {
+        switch rawValue {
+        case 100..<200:
+            return .informational
+        case 200..<300:
+            return .success
+        case 300..<400:
+            return .redirection
+        case 400..<500:
+            return .clientError
+        case 500..<600:
+            return .serverError
+        default:
+            return .unknown
+        }
+    }
 }

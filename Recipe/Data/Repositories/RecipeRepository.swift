@@ -6,12 +6,10 @@
 //
 
 import Foundation
-import RxSwift
 
 protocol RecipeRepositoryProtocol {
-    func getRecipes() -> Single<[RecipeUIModel]>
+    func getRecipes() async throws -> [RecipeUIModel]
     func getFavoritedRecipes() -> [RecipeUIModel]
-    func getFavoritedRecipes() -> Single<[RecipeUIModel]>
     
     func addRecipeToFavorites(with recipe: RecipeUIModel)
     func removeRecipeFromFavorites(with recipe: RecipeUIModel)
@@ -26,23 +24,10 @@ class RecipeRepository: RecipeRepositoryProtocol {
 
     // MARK: - Methods
 
-    func getRecipes() -> Single<[RecipeUIModel]> {
+    func getRecipes() async throws -> [RecipeUIModel] {
         let favoritedRecipes = recipeLocalDataSource.getFavoritedRecipes()
-        
-        return recipeRemoteDataSource.getAllRecipes().map { responseModel -> [RecipeUIModel] in
-            return RecipeUIModel.convert(from: responseModel, from: favoritedRecipes)
-        }
-    }
-
-    func getFavoritedRecipes() -> Single<[RecipeUIModel]> {
-
-        let favoritedRecipes = recipeLocalDataSource.getFavoritedRecipes()
-
-        return Observable<[RecipeUIModel]>.create { observer in
-            observer.onNext(RecipeUIModel.convert(from: favoritedRecipes))
-            observer.onCompleted()
-            return Disposables.create()
-        }.asSingle()
+        let allRecipes = try await recipeRemoteDataSource.getAllRecipes()
+        return RecipeUIModel.convert(from: allRecipes, from: favoritedRecipes)
     }
 
     func getFavoritedRecipes() -> [RecipeUIModel] {

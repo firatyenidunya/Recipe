@@ -5,8 +5,6 @@ inhibit_all_warnings!
 def recipe_pods
   pod 'SDWebImage', '5.0' # Asynchronous image downloader with cache support as a UIImageView category
   pod 'DisplaySwitcher', '~> 2.0' # Custom transition between two collection view layouts
-  pod 'RxSwift', '6.2.0' # Reactive programming in swift
-  pod 'RxCocoa' # Reactive programming in swift
   pod "Resolver", '1.5.0' # Dependency Injection / Service Locator framework
 end
 
@@ -19,9 +17,7 @@ target 'Recipe' do
 
   target 'RecipeTests' do
     inherit! :search_paths
-    # Pods for testing
-    pod 'RxTest' # Provides testing capabilities for Rx-based systems. It depends on RxSwift.
-    pod 'RxSwift', '6.2.0' # Reactive programming in swift
+    # Pods for testin
   end
 
   target 'RecipeUITests' do

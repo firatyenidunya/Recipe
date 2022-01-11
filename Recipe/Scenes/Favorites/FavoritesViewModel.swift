@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import RxCocoa
-import RxSwift
+import Combine
 
 protocol FavoritesViewModelProtocol {
-    var recipesSubject: BehaviorRelay<[RecipeUIModel]> { get }
+    var recipesPublisher: Published<[RecipeUIModel]>.Publisher { get }
 
     func getFavoritedRecipes()
     func removeFromFavorites(at index: Int)
@@ -24,23 +23,19 @@ class FavoritesViewModel: BaseViewModel,FavoritesViewModelProtocol {
 
     // MARK: - Properties
 
-    var recipesSubject = BehaviorRelay<[RecipeUIModel]>(value: [])
+    var recipesPublisher: Published<[RecipeUIModel]>.Publisher { $recipes }
+    @Published var recipes: [RecipeUIModel] = []
 
     // MARK: - Methods
 
     func getFavoritedRecipes() {
-        recipeRepository
-            .getFavoritedRecipes()
-            .subscribe(onSuccess: { [weak self] recipes in
-                guard let self = self else { return }
-                self.recipesSubject.accept(recipes)
-            }).disposed(by: disposeBag)
+        recipes = recipeRepository.getFavoritedRecipes()
     }
 
     func removeFromFavorites(at index: Int) {
-        var value = recipesSubject.value
+        var value = self.recipes
         recipeRepository.removeRecipeFromFavorites(with: value[index])
         value.remove(at: index)
-        recipesSubject.accept(value)
+        self.recipes = value
     }
 }

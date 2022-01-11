@@ -6,16 +6,15 @@
 //
 
 import Foundation
-import RxSwift
 
 protocol BaseServiceProtocol {
     func request<T: Decodable>(with requestObject: RequestObject,
-                               decoder: JSONDecoder) -> Single<T>
+                                decoder: JSONDecoder) async throws -> T
 }
 
 extension BaseServiceProtocol {
     func request<T: Decodable>(with requestObject: RequestObject,
-                               decoder: JSONDecoder = JSONDecoder()) -> Single<T> {
-        request(with: requestObject, decoder: decoder)
+                               decoder: JSONDecoder = JSONDecoder()) async throws -> T {
+        try await request(with: requestObject, decoder: decoder)
     }
 }

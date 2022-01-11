@@ -6,12 +6,9 @@
 //
 
 import Foundation
-import RxSwift
 
 protocol BaseViewModelProtocol {
-    var disposeBag: DisposeBag { get }
 }
 
 class BaseViewModel: BaseViewModelProtocol {
-    var disposeBag = DisposeBag()
 }

@@ -6,10 +6,9 @@
 //
 
 import Foundation
-import RxSwift
 
 protocol CollectionsRemoteDataSourceProtocol {
-    func getAllCollections() -> Single<[CollectionsResponseModel]?>
+    func getAllCollections() async throws -> [CollectionsResponseModel]
 }
 
 class CollectionsRemoteDataSource: CollectionsRemoteDataSourceProtocol {
@@ -20,7 +19,7 @@ class CollectionsRemoteDataSource: CollectionsRemoteDataSourceProtocol {
 
     // MARK: - Methods
 
-    func getAllCollections() -> Single<[CollectionsResponseModel]?> {
-        collectionsRemoteService.getAllCollections()
+    func getAllCollections() async throws -> [CollectionsResponseModel] {
+        try await collectionsRemoteService.getAllCollections()
     }
 }

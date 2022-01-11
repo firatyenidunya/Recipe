@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RxSwift
 
 final class BaseService: BaseServiceProtocol {
 
@@ -15,49 +14,44 @@ final class BaseService: BaseServiceProtocol {
     init(urlSession: NetworkLoader = URLSession.shared) {
         self.urlSession = urlSession
     }
-
-    @discardableResult
+    
     func request<T: Decodable>(with requestObject: RequestObject,
-                               decoder: JSONDecoder = JSONDecoder()) -> Single<T> {
-        return Observable<T>.create { [self] observer in
-            guard let urlRequest = requestObject.urlRequest else {
-                observer.onError(RecipeError.invalidUrlRequest)
-                return Disposables.create()
-            }
-
-            urlSession.load(using: urlRequest) { data, response, error in
-                handle(response, with: decoder, with: data, to: observer)
-            }
-
-            return Disposables.create()
-        }.share().asSingle()
+                               decoder: JSONDecoder = JSONDecoder()) async throws -> T {
+        do {
+            let urlRequest = try requestObject.getUrlRequest()
+            let (data, response) = try await urlSession.load(for: urlRequest, delegate: nil)
+            return try handle(response, with: decoder, with: data)
+        } catch {
+            return try handle(nil, data: nil, error: error)
+        }
+    }
+    
+    private func handle<T: Decodable>(_ response: URLResponse?,
+                                      with decoder: JSONDecoder,
+                                      with data: Data?) throws -> T {
+        guard let httpData = data else {
+            return try handle(response, data: data, error: nil)
+        }
+        
+        do {
+            return try decoder.decode(T.self, from: httpData)
+        } catch {
+            return try handle(response, data: data, error: error)
+        }
     }
 
     private func handle<T: Decodable>(_ response: URLResponse?,
-                                      with decoder: JSONDecoder,
-                                      with data: Data?,
-                                      to observer: AnyObserver<T>) {
-        guard let httpData = data else {
-            handle(response, with: data, to: observer)
-            return
+                                      data: Data?,
+                                      error: Error?) throws -> T {
+        if let response = response as? HTTPURLResponse,
+           let httpStatus = response.httpStatus, httpStatus.httpStatusType != .success {
+            throw RecipeError.httpError(status: httpStatus)
         }
-
-        guard let result = try? decoder.decode(T.self, from: httpData) else {
-            observer.onError(RecipeError.mappingFailed)
-            return
+        
+        if let err = error {
+            throw RecipeError.unknown(error: err as NSError)
         }
-
-        observer.onNext(result)
-        observer.onCompleted()
-    }
-
-    private func handle<T>(_ response: URLResponse?,
-                           with data: Data?,
-                           to observer: AnyObserver<T>) {
-        if let response = response as? HTTPURLResponse, let httpStatus = response.httpStatus {
-            observer.onError(RecipeError.httpError(status: httpStatus, data: data))
-        } else {
-            observer.onError(RecipeError.badResponse)
-        }
+        
+        throw RecipeError.badResponse
     }
 }

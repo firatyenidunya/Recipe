@@ -9,7 +9,7 @@ import Foundation
 
 enum RecipeError: Error {
     case invalidUrlRequest
-    case httpError(status: HTTPStatus, data: Data? = nil)
+    case httpError(status: HTTPStatus)
     case unknown(error: NSError)
     case customError(_ code: Int, _ message: String, _ data: Data? = nil)
     case mappingFailed
@@ -17,7 +17,7 @@ enum RecipeError: Error {
 
     var errorCode: Int {
         switch self {
-            case .httpError(let error, _):
+            case .httpError(let error):
                 return error.rawValue
             case .unknown(let error):
                 return error.code
